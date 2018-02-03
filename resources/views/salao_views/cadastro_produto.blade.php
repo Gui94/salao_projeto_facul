@@ -1,43 +1,43 @@
 @include('layouts.cabecalho_admin')
 @section('cabecalho_admin')
 <style>
-    select{
-        width:200px;
-    }
-    .detalhes{
-        background-color:purple;
-        border:3px solid silver;
-        top:2px;
-        position:relative;
-        font-size:25px;
-        color:silver;
-        border-radius:10px;
-    }
-    .servicos_cadastrados{
-        position:relative;
-        left:550px;
-        bottom:45px;
-        background-color:purple;
-        border:3px solid silver;
-        font-size:25px;
-        color:silver;
-        border-radius:10px;
-    }
-    .mensagem_error{
-        width:250px;
-        height:310px;
-        background-color:#d9edf7;
-        border:1px solid white;
-        display:inline;
-        color: #31708f;
-    }
-    .mensagem{
-        width:250px;
-        height:310px;
-        background-color:green;
-        border:1px solid white;
-        display:inline;
-    }
+select{
+    width:200px;
+}
+.detalhes{
+    background-color:purple;
+    border:3px solid silver;
+    top:2px;
+    position:relative;
+    font-size:25px;
+    color:silver;
+    border-radius:10px;
+}
+.servicos_cadastrados{
+    position:relative;
+    left:550px;
+    bottom:45px;
+    background-color:purple;
+    border:3px solid silver;
+    font-size:25px;
+    color:silver;
+    border-radius:10px;
+}
+.mensagem_error{
+    width:250px;
+    height:310px;
+    background-color:#d9edf7;
+    border:1px solid white;
+    display:inline;
+    color: #31708f;
+}
+.mensagem{
+    width:250px;
+    height:310px;
+    background-color:green;
+    border:1px solid white;
+    display:inline;
+}
 </style>
     <div id="page-wrapper" >
         <div id="page-inner">

@@ -38,7 +38,6 @@
                     <input type="hidden" value="{{$cliente->id}}" name="id">
                     <br/>
                     <p class="coluna">Nome:<input name="name" class="form-control" type="text"value="{{$cliente->name}}"></p>
-
                     <p class="mensagem_error">{{$errors->first('name',':message')}}</p>
                     <br/>
                     <p class="coluna">Sobrenome:<input name="sobrenome" class="form-control" type="text"value="{{$cliente->sobrenome}}"></p>

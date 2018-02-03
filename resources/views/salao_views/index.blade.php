@@ -70,10 +70,10 @@ margin-left:0;
 }
 </style>
     <div class="fotos">
-        <img src="http://localhost/laravel_5.2_base/laravel-base-aulas-master/public/imagens/cabelo2.jpg"/>
-        <img src="http://localhost/laravel_5.2_base/laravel-base-aulas-master/public/imagens/salao.jpg"/>
-        <img src="http://localhost/laravel_5.2_base/laravel-base-aulas-master/public/imagens/banner-1.jpg"/>
-        <img src="http://localhost/laravel_5.2_base/laravel-base-aulas-master/public/imagens/salao2.jpg"/>
+        <img style="width:100%;" src="http://localhost/salao/public/imagens/cabelo2.jpg"/>
+        <img style="width:100%;" src="http://localhost/salao/public/imagens/salao.jpg"/>
+        <img style="width:100%;" src="http://localhost/salao/public/imagens/banner-1.jpg"/>
+        <img style="width:100%;" src="http://localhost/salao/public/imagens/salao2.jpg"/>
     </div>
 <div class="main_bg1">
     <div class="wrap">
