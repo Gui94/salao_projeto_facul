@@ -6,7 +6,6 @@
     width:900px;
     height:300px;
 }
-
 #promocao{
     width:300px;
     height:365px;
@@ -18,25 +17,22 @@
     font-size:25px;
 
 }
-
 .fotos img{
     width:1348px;
     height:555px;
 }
-    .fotos img {
-
+.fotos img {
     top:  0;
     left: 0
 }
-
 .preco_normal{
-color:red;
-font-size:25px;
+    color:red;
+    font-size:25px;
 }
 
 .preco_desconto{
-color:green;
-font-size:35px;
+    color:green;
+    font-size:35px;
 } 
 
 .img_servico_promocao{
@@ -45,16 +41,14 @@ font-size:35px;
 
 }
 .grid1_of_3{
-margin-left:0;
+    margin-left:0;
 }
-
 .btn-info{
     color: #fff;
     background-color: #4CCFC1;
     border-color: #4CCFC1;
     font-size:20px;
 }
-
 .btn-info:hover{
     color: white;
     background-color: #009999;
@@ -69,12 +63,12 @@ margin-left:0;
     font-size:40px;
 }
 </style>
-    <div class="fotos">
-        <img style="width:100%;" src="http://localhost/salao/public/imagens/cabelo2.jpg"/>
-        <img style="width:100%;" src="http://localhost/salao/public/imagens/salao.jpg"/>
-        <img style="width:100%;" src="http://localhost/salao/public/imagens/banner-1.jpg"/>
-        <img style="width:100%;" src="http://localhost/salao/public/imagens/salao2.jpg"/>
-    </div>
+<div class="fotos">
+    <img style="width:100%;" src="http://localhost/salao/public/imagens/cabelo2.jpg"/>
+    <img style="width:100%;" src="http://localhost/salao/public/imagens/salao.jpg"/>
+    <img style="width:100%;" src="http://localhost/salao/public/imagens/banner-1.jpg"/>
+    <img style="width:100%;" src="http://localhost/salao/public/imagens/salao2.jpg"/>
+</div>
 <div class="main_bg1">
     <div class="wrap">
         <div class="main1">
