@@ -1,21 +1,16 @@
 <style>
 .panel-info > .panel-heading{
 	background-color:#4CCFC1;
-	color:white;
-	
+	color:white;	
 }
-
 .panel-info > .panel-heading{
-	border-color:#4CCFC1;
-	
+	border-color:#4CCFC1;	
 }
-
 .btn-primary{
 	color: #fff;
     background-color: #4CCFC1;
     border-color: #4CCFC1;
 }
-
 .btn-primary:hover{
 	color: white;
     background-color: #009999;
