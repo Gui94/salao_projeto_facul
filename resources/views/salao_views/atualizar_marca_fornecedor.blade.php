@@ -31,10 +31,9 @@
         <div class="row">
             <div class="col-md-12">
                 <br/>
-                <a class="btn btn-primary" href="{{url('listar_marca_fornecedor')}}">Voltar</a>
+                <a class="btn btn-primary" href="{{route('listar.marca.fornecedor')}}">Voltar</a>
                 <br/>
-                <form action="{{url('atualizando_marca_fornecedor')}}" method="POST">
-                @if($errors->has())
+                <form action="{{route('atualizando.marca.fornecedor')}}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <input type="hidden" name="id_marca_fornecedor" value="{{$marca->id_marca_fornecedor}}">
                     <p class="mensagem_error">{{$errors->first('id_marca_produto',':message')}}</p>
@@ -43,7 +42,6 @@
                     <br/>
                     <input type="submit" class="btn btn-primary btn-lg btn-block" value="atualizar">
                 </form>
-                @endif
             </div>
         </div>
     </div>

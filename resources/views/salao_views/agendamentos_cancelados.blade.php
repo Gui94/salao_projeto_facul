@@ -43,7 +43,7 @@ select{
                         </div>
                         <br/>
                         <strong>Pesquisar agendamentos cancelados de cada cliente</strong>
-                        <form action="{{url('pesquisar_agendamentos_cancelados')}}" method="GET">
+                        <form action="{{route('pesquisar.agendamentos.cancelados')}}" method="GET">
                             Lista de Clientes:
                             <select class="form-control"  name="clientes">
                                 @foreach($cliente as $f)
@@ -81,11 +81,11 @@ select{
                                      <th>Não Pago</th>
                                     @endif
                                     <th>{{$p->users->name}}</th>
-                                    <th><a class="btn btn-primary" href="{{url('detalhes_pedidos_admin',$p->id_pedido)}}">Mais detalhes</a></th>
+                                    <th><a class="btn btn-primary" href="{{route('detalhes.pedidos.admin',$p->id_pedido)}}">Mais detalhes</a></th>
                                     @if($p->pago == false)
                                     @if($p->cancelado == true)
                                     @else
-                                    {{ Form::open (['url' => ['baixar_pedido', $p->id_pedido], 'method' => 'PUT']) }}
+                                    {{ Form::open (['route' => ['baixar.pedido', $p->id_pedido], 'method' => 'PUT']) }}
                                      <th>{{ Form::submit('Dar Baixa', ['class'=>'btn btn-info']) }}</th>
                                     {{ Form::close() }}
                                     @endif

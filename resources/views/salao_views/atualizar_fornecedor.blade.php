@@ -32,10 +32,9 @@
         <div class="row">
             <div class="col-md-12">
                 <br/>
-                <a class="btn btn-primary" href="{{url('listar_fornecedor')}}">Voltar</a>
+                <a class="btn btn-primary" href="{{route('listar.fornecedor')}}">Voltar</a>
                 <br/>
-                @if($errors->has())
-                    <form action="{{url('atualizar_fornecedor')}}" method="POST">
+                    <form action="{{route('atualizar.fornecedor')}}" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <input type="hidden" name="id_fornecedor" value="{{$fornecedor['id_fornecedor']}}">
                         <p>Nome do fornecedor:</p><input name="nome_fornecedor" class="form-control" type="text" value="{{$fornecedor['nome_fornecedor']}}">
@@ -54,7 +53,6 @@
                         <br/>
                         <input type="submit" class="btn btn-primary btn-lg btn-block" value="atualizar">
                     </form>
-                @endif
             </div>
         </div>
     </div>

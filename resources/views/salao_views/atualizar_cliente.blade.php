@@ -33,8 +33,7 @@
             <div class="col-md-12">
                 <br/>
                 <h3>Atualizando informações do cliente:<strong>{{$cliente->name}}</strong></h3>
-                @if($errors->has())
-                <form action="{{url('atualizando_cliente_admin')}}" method="post">
+                <form action="{{route('atualizando.cliente.admin')}}" method="post">
                     <input type="hidden" value="{{$cliente->id}}" name="id">
                     <br/>
                     <p class="coluna">Nome:<input name="name" class="form-control" type="text"value="{{$cliente->name}}"></p>
@@ -57,7 +56,6 @@
                     <br/>
                     <input type="submit" value="atualizar" class="btn btn-primary btn-lg btn-block">
                 </form>
-                @endif
             </div>
         </div>
     </div>

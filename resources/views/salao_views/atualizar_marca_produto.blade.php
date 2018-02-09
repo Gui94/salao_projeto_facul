@@ -33,10 +33,10 @@
 		<p class="mensagem_error">{{$errors->first('id_marca_produto',':message')}}</p>
 	</div>
 @endif
-<a class="btn btn-primary" href="{{url('listar_marca_produto')}}">Voltar</a>
+<a class="btn btn-primary" href="{{route('listar.marca.produto')}}">Voltar</a>
 <br/>
 <div id="forms">
-	{!! Form::open(array('url' =>'atualizando_marca_produto'))!!}
+	{!! Form::open(array('route' =>'atualizando.marca.produto'))!!}
 		<input type="hidden" name="_token" value="{{ csrf_token() }}" />	
 		<input type="hidden" name="id_marca_produto" value="{{$marca->id_marca_produto}}">
 		<p>Nome da marca:</p><input name="nome" type="text" value="{{$marca->nome}}">

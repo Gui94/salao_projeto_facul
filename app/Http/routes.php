@@ -331,7 +331,7 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
 		'as'=>'cliente.pedidos.admin',
 		'uses'=>'IndexController@ClientePedidosAdmin'
 	]);
-	Route::get('detalhes_pedidos_admin/{id}',[
+	Route::get('detalhes/pedidos/admin/{id}',[
 		'as'=>'detalhes.pedidos.admin',
 		'uses'=>'PedidoController@ClientePedidosDetalhesAdmin'
 	]);
