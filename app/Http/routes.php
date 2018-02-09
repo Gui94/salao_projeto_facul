@@ -33,15 +33,13 @@ Route::get('/', function () {
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-Route::group(['middleware' => ['web']], function () {
-
+Route::group(['middleware' => ['web']], function (){
  /*ROTAS DE IMAGEM,ADICIONAR ITEM NO CARRINHO,ESVAZIAR CARRINHO ORIGINAIS
   DO PROJETO SHOPPVEL*/
-     Route::get('imagem/arquivo/{nome}', [
+    Route::get('imagem/arquivo/{nome}', [
         'as' => 'imagem.file',
         'uses' => 'ImagemController@getImagemFile'
     ]);
-
     Route::any('carrinho/adicionar/{id}', [
         'as' => 'carrinho.adicionar',
         'uses' => 'CarrinhoController@anyAdicionar'
@@ -50,100 +48,245 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'carrinho.esvaziar',
         'uses' => 'CarrinhoController@getEsvaziar'
     ]);
-
 });
-
-
-Route::post('cadastrar_usuario','ClienteController@cadastrar');
-
-Route::post('LogIn','Auth\AuthController@postLoginAdmin');
-
-Route::post('login_cliente','Auth\AuthController@postLogin');
-
-Route::get('logout','IndexController@Logout');
-
-Route::get('servico_id/{id}','ServicoController@servicoid');
-Route::get('produto_id/{id}','ProdutoController@produtoid');
-Route::get('fornecedor_id/{id}','FornecedorController@fornecedorid');
-Route::get('cliente_id/{id}','AdminController@clienteid');
-Route::get('atualizarcliente_form/{id}','ClienteController@AtualizarClienteForm');
-Route::post('atualizandoclientedados','ClienteController@AtualizandoClienteInfos');
-
- Route::get('index','IndexController@Index');
- Route::get('servicos','ServicoController@ListarServicos');
- Route::get('detalhes/{id}','ServicoController@ServicoDetalhes');
- Route::post('pedido/{id}','IndexController@AddCarrinho');
- Route::get('carrinho','CarrinhoController@getListar');
- Route::get('realizar_pedido','IndexController@GerarPedido');
- Route::get('cadastro_login','IndexController@CadastroLoginForms');
- Route::get('contato','IndexController@ContatoView');
- Route::get('salao','AdminController@AdminForm');
-
-
-Route::post('autenticando_cliente','ClienteController@AutenticandoCliente');
-Route::get('sair_cliente','ClienteController@logout_cliente');
-
+    Route::post('cadastrar_usuario',[
+        'as'=>'cadastrar.usuario',
+        'uses'=>'ClienteController@cadastrar'
+    ]);
+    Route::post('LogIn',[
+        'as'=>'login',
+        'uses'=>'Auth\AuthController@postLoginAdmin'
+    ]);
+    Route::post('login_cliente',[
+        'as'=>'login.cliente',
+        'uses'=>'Auth\AuthController@postLogin'
+    ]);
+    Route::get('logout',[
+        'as'=>'logout',
+        'uses'=>'IndexController@Logout'
+    ]);
+    Route::get('servico_id/{id}',[
+        'as'=>'servico.id',
+        'uses'=>'ServicoController@servicoid'
+    ]);
+    Route::get('produto_id/{id}',[
+        'as'=>'produto.id',
+        'uses'=>'ProdutoController@produtoid'
+    ]);
+    Route::get('fornecedor_id/{id}',[
+        'as'=>'fornecedor.id',
+        'uses'=>'FornecedorController@fornecedorid'
+    ]);
+    Route::get('cliente_id/{id}',[
+        'as'=>'cliente.id',
+        'uses'=>'AdminController@clienteid'
+    ]);
+    Route::get('atualizarcliente_form/{id}',[
+        'as'=>'atualizar.cliente.form',
+        'uses'=>'ClienteController@AtualizarClienteForm'
+    ]);
+    Route::post('atualizandoclientedados',[
+        'as'=>'atualizando.cliente.dados',
+        'uses'=>'ClienteController@AtualizandoClienteInfos'
+    ]);
+    Route::get('index',[
+        'as'=>'index',
+        'uses'=>'IndexController@Index'
+    ]);
+    Route::get('servicos',[
+        'as'=>'servicos',
+        'uses'=>'ServicoController@ListarServicos'
+    ]);
+    Route::get('detalhes/{id}',[
+        'as'=>'detalhes.id',
+        'uses'=>'ServicoController@ServicoDetalhes'
+    ]);
+    Route::post('pedido/{id}',[
+        'as'=>'pedido.id',
+        'uses'=>'IndexController@AddCarrinho'
+    ]);
+    Route::get('carrinho',[
+        'as'=>'carrinho',
+        'uses'=>'CarrinhoController@getListar'
+    ]);
+    Route::get('realizar_pedido',[
+        'as'=>'realizar.pedido',
+        'uses'=>'IndexController@GerarPedido'
+    ]);
+    Route::get('cadastro_login',[
+        'as'=>'cadastro.login',
+        'uses'=>'IndexController@CadastroLoginForms'
+    ]);
+    Route::get('contato',[
+        'as'=>'contato',
+        'uses'=>'IndexController@ContatoView'
+    ]);
+    Route::get('salao',[
+        'as'=>'salao',
+        'uses'=>'AdminController@AdminForm'
+    ]);
+    Route::post('autenticando_cliente',[
+        'as'=>'autenticando.cliente',
+        'uses'=>'ClienteController@AutenticandoCliente'
+    ]);
+    Route::get('sair_cliente',[
+        'as'=>'sair.cliente',
+        'uses'=>'ClienteController@logout_cliente'
+    ]);
 Route::group(['middleware'=>'App\Http\Middleware\Cliente'], function(){
-Route::get('cliente_painel','ClienteController@ClientePainel');
-Route::get('pedidos','ClienteController@ClientePedidos');
-Route::get('pedido_detalhes/{id}','ClienteController@ClientePedidosDetalhes');
-Route::get('cliente_dados','ClienteController@ClienteDados');
-Route::get('cliente_dados_alterar','ClienteController@ClienteDadosEditar');
-/* ROTA ONDE MONTA O ARRAY COM TODOS OS ITENS DO CARRINHO ANTES DE FINALIZAR O PEDIDO
-,ORIGINAL DO PROJETO SHOPPVEL*/
-Route::any('carrinho/finalizar-compra', [
- 'as' => 'carrinho.finalizar-compra',
-'uses' => 'CarrinhoController@getFinalizarCompra'
-]);
 
+    Route::get('cliente_painel',[
+        'as'=>'cliente.painel',
+        'uses'=>'ClienteController@ClientePainel'
+    ]);
+    Route::get('pedidos',[
+        'as'=>'pedidos',
+        'uses'=>'ClienteController@ClientePedidos'
+    ]);
+    Route::get('pedido_detalhes/{id}',[
+        'as'=>'pedido.detalhes.id',
+        'uses'=>'ClienteController@ClientePedidosDetalhes'
+    ]);
+    Route::get('cliente_dados',[
+        'as'=>'cliente.dados',
+        'uses'=>'ClienteController@ClienteDados'
+    ]);
+    Route::get('cliente_dados_alterar',[
+        'as'=>'cliente.dados.alterar',
+        'uses'=>'ClienteController@ClienteDadosEditar'
+    ]);
+    /* ROTA ONDE MONTA O ARRAY COM TODOS OS ITENS DO CARRINHO ANTES DE FINALIZAR O PEDIDO
+    ,ORIGINAL DO PROJETO SHOPPVEL*/
+    Route::any('carrinho/finalizar-compra', [
+     'as' => 'carrinho.finalizar-compra',
+    'uses' => 'CarrinhoController@getFinalizarCompra'
+    ]);
     /*ROTA DE GERAR O AGENDAMENTO EDITADA POR GUILHERME ARAUJO E ADRIANO KAPP*/
-Route::post('gerar_pedido', [
-    'as' => 'gerar.pedido',
-    'uses' => 'PedidoController@GerarPedido'
+    Route::post('gerar_pedido', [
+        'as' => 'gerar.pedido',
+        'uses' => 'PedidoController@GerarPedido'
     ]);
-Route::post('gerar_pedido_espera', [
-    'as' => 'gerar.pedido.espera',
-    'uses' => 'PedidoController@GerarPedidoEspera'
+    Route::post('gerar_pedido_espera', [
+        'as' => 'gerar.pedido.espera',
+        'uses' => 'PedidoController@GerarPedidoEspera'
     ]);
 
- 
 });
-
-Route::post('autenticando','AdminController@Autenticando');
-Route::get('sair','AdminController@logout_admin');
-
+    Route::post('autenticando',[
+        'as'=>'autenticando',
+        'uses'=>'AdminController@Autenticando'
+    ]);
+    Route::get('sair',[
+        'as'=>'sair',
+        'uses'=>'AdminController@logout_admin'
+    ]);
 Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
 
-Route::get('pesquisar_data','RelatorioController@CalcularLucro');
-
-Route::get('lucro_do_dia','RelatorioController@CalculoLucroDoDia');
-
-Route::get('pesquisar','PedidoController@PesquisarDataAgendamento');
+    Route::get('pesquisar_data',[
+        'as'=>'pesquisar.data',
+        'uses'=>'RelatorioController@CalcularLucro'
+    ]);
+    Route::get('lucro_do_dia',[
+        'as'=>'lucro.do.dia',
+        'uses'=>'RelatorioController@CalculoLucroDoDia'
+    ]);
+    Route::get('pesquisar',[
+        'as'=>'pesquisar',
+        'uses'=>'PedidoController@PesquisarDataAgendamento'
+    ]);
+    Route::get('cadastro_marca_produto',[
+        'as'=>'cadastro.marca.produto',
+        'uses'=>'IndexController@FormMarcaProduto'
+    ]);
+    Route::get('listar_marca_produto',[
+        'as'=>'listar.marca.produto',
+        'uses'=>'IndexController@ListarMarcasProduto'
+    ]);
+    Route::post('cadastrando_marca_produto',[
+        'as'=>'cadastrando.marca.produto',
+        'uses'=>'IndexController@CadastrarMarcaProduto'
+    ]);
+    Route::get('excluir_marca_produto/{id}',[
+        'as'=>'excluir.marca.produto',
+        'uses'=>'IndexController@deleteMarcaProduto'
+    ]);
+    Route::get('deletar_marca_produto/{id}',[
+        'as'=>'deletar.marca.produto',
+        'uses'=>'IndexController@deletarMarcaProduto'
+    ]);
+    Route::get('atualizar_marca_produto/{id}',[
+        'as'=>'atualizar.marca.produto',
+        'uses'=>'IndexController@atualizarMarcaProduto'
+    ]);
+    Route::post('atualizando_marca_produto',[
+        'as'=>'atualizando.marca.produto',
+        'uses'=>'IndexController@AtualizandoMarcaProduto'
+    ]);
+    Route::get('cadastro_marca_fornecedor',[
+        'as'=>'cadastro.marca.fornecedor',
+        'uses'=>'FornecedorController@FormMarcaFornecedor'
+    ]);
+    Route::get('listar_marca_fornecedor',[
+        'as'=>'listar.marca.fornecedor',
+        'uses'=>'FornecedorController@ListarMarcasFornecedor'
     
-Route::get('cadastro_marca_produto','IndexController@FormMarcaProduto');
-Route::get('listar_marca_produto','IndexController@ListarMarcasProduto');
-Route::post('cadastrando_marca_produto','IndexController@CadastrarMarcaProduto');
-Route::get('excluir_marca_produto/{id}','IndexController@deleteMarcaProduto');
-Route::get('deletar_marca_produto/{id}','IndexController@deletarMarcaProduto');
-Route::get('atualizar_marca_produto/{id}','IndexController@atualizarMarcaProduto');
-Route::post('atualizando_marca_produto','IndexController@AtualizandoMarcaProduto');
-
-Route::get('cadastro_marca_fornecedor','FornecedorController@FormMarcaFornecedor');
-Route::get('listar_marca_fornecedor','FornecedorController@ListarMarcasFornecedor');
-Route::post('cadastrando_marca_fornecedor','FornecedorController@CadastrarMarcaFornecedor');
-Route::get('excluir_marca_fornecedor/{id}','FornecedorController@deleteMarcaFornecedor');
-Route::get('deletar_marca_fornecedor/{id}','FornecedorController@deletarMarcaFornecedor');
-Route::get('atualizar_marca_fornecedor/{id}','FornecedorController@atualizarMarcaFornecedor');
-Route::post('atualizando_marca_fornecedor','FornecedorController@AtualizandoMarcaFornecedor');
-Route::get('admin_painel','AdminController@AdminPainel');
-Route::get('listar_agendamentos','PedidoController@ListarAgendamentos');
-Route::get('listar_produto','ProdutoController@ListarProduto');
-Route::get('financeiro_form','RelatorioController@FinanceiroForm');
-Route::get('cadastro_fornecedor','FornecedorController@CadastroFornecedorForm');
-Route::get('cadastro_servico','ServicoController@CadastroServico');
-Route::get('listar_clientes','AdminController@ListarClientes');
-Route::get('pedidos_pagos','PedidoController@PedidosPagos');
-Route::get('pedidos_pagos_naopagos','PedidoController@PedidosNaoPagos');
+    ]);
+    Route::post('cadastrando_marca_fornecedor',[
+        'as'=>'cadastro.marca.fornecedor',
+        'uses'=>'FornecedorController@CadastrarMarcaFornecedor'
+    ]);
+    Route::get('excluir_marca_fornecedor/{id}',[
+        'as'=>'excluir.marca.fornecedor',
+        'uses'=>'FornecedorController@deleteMarcaFornecedor'
+    ]);
+    Route::get('deletar_marca_fornecedor/{id}',[
+        'as'=>'deletar.marca.fornecedor',
+        'uses'=>'FornecedorController@deletarMarcaFornecedor'
+    ]);
+    Route::get('atualizar_marca_fornecedor/{id}',[
+        'as'=>'atualizar.marca.fornecedor',
+        'uses'=>'FornecedorController@atualizarMarcaFornecedor'
+    ]);
+    Route::post('atualizando_marca_fornecedor',[
+        'as'=>'atualizando.marca.fornecedor',
+        'uses'=>'FornecedorController@AtualizandoMarcaFornecedor'
+    ]);
+    Route::get('admin_painel',[
+        'as'=>'admin.painel',
+        'uses'=>'AdminController@AdminPainel'
+    ]);
+    Route::get('listar_agendamentos',[
+        'as'=>'listar.agendamentos',
+        'uses'=>'PedidoController@ListarAgendamentos'
+    ]);
+    Route::get('listar_produto',[
+        'as'=>'listar.produto',
+        'uses'=>'ProdutoController@ListarProduto'
+    ]);
+    Route::get('financeiro_form',[
+        'as'=>'financeiro.form',
+        'uses'=>'RelatorioController@FinanceiroForm'
+    ]);
+    Route::get('cadastro_fornecedor',[
+        'as'=>'cadastro.fornecedor',
+        'uses'=>'FornecedorController@CadastroFornecedorForm'
+    ]);
+    Route::get('cadastro_servico',[
+        'as'=>'cadastro.servico',
+        'uses'=>'ServicoController@CadastroServico'
+    ]);
+    Route::get('listar_clientes',[
+        'as'=>'listar.cliente',
+        'uses'=>'AdminController@ListarClientes'
+    ]);
+    Route::get('pedidos_pagos',[
+        'as'=>'pedidos.pagos',
+        'uses'=>'PedidoController@PedidosPagos'
+    ]);
+    Route::get('pedidos_pagos_naopagos',[
+        'as'=>'pedido.pagos.naopagos',
+        'uses'=>'PedidoController@PedidosNaoPagos'
+    ]);
 Route::any('cadastro_produto','ProdutoController@CadastroProduto');
 Route::get('atualizar_produto/{id}','ProdutoController@AtualizarProduto');
 Route::get('listar_fornecedor','FornecedorController@ListarFornecedor');
