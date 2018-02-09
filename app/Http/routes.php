@@ -66,19 +66,19 @@ Route::group(['middleware' => ['web']], function (){
         'uses'=>'IndexController@Logout'
     ]);
     Route::get('servico_id/{id}',[
-        'as'=>'servico.id',
+        'as'=>'servico',
         'uses'=>'ServicoController@servicoid'
     ]);
     Route::get('produto_id/{id}',[
-        'as'=>'produto.id',
+        'as'=>'produto',
         'uses'=>'ProdutoController@produtoid'
     ]);
     Route::get('fornecedor_id/{id}',[
-        'as'=>'fornecedor.id',
+        'as'=>'fornecedor',
         'uses'=>'FornecedorController@fornecedorid'
     ]);
     Route::get('cliente_id/{id}',[
-        'as'=>'cliente.id',
+        'as'=>'cliente',
         'uses'=>'AdminController@clienteid'
     ]);
     Route::get('atualizarcliente_form/{id}',[
@@ -98,11 +98,11 @@ Route::group(['middleware' => ['web']], function (){
         'uses'=>'ServicoController@ListarServicos'
     ]);
     Route::get('detalhes/{id}',[
-        'as'=>'detalhes.id',
+        'as'=>'detalhes',
         'uses'=>'ServicoController@ServicoDetalhes'
     ]);
     Route::post('pedido/{id}',[
-        'as'=>'pedido.id',
+        'as'=>'pedido',
         'uses'=>'IndexController@AddCarrinho'
     ]);
     Route::get('carrinho',[
@@ -144,7 +144,7 @@ Route::group(['middleware'=>'App\Http\Middleware\Cliente'], function(){
         'uses'=>'ClienteController@ClientePedidos'
     ]);
     Route::get('pedido_detalhes/{id}',[
-        'as'=>'pedido.detalhes.id',
+        'as'=>'pedido.detalhes',
         'uses'=>'ClienteController@ClientePedidosDetalhes'
     ]);
     Route::get('cliente_dados',[
@@ -287,37 +287,133 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
         'as'=>'pedido.pagos.naopagos',
         'uses'=>'PedidoController@PedidosNaoPagos'
     ]);
-Route::any('cadastro_produto','ProdutoController@CadastroProduto');
-Route::get('atualizar_produto/{id}','ProdutoController@AtualizarProduto');
-Route::get('listar_fornecedor','FornecedorController@ListarFornecedor');
-Route::get('atualizar_fornecedor/{id}','FornecedorController@AtualizarFornecedor');
-Route::get('listar_servicos_admin','ServicoController@ListarServicoAdmin');
-Route::get('atualizar_servico/{id}','ServicoController@AtualizarServico');
-Route::post('atualizandoservico','ServicoController@AtualizandoServico');
-Route::get('deletar_servico/{id}','ServicoController@DeletarServico');
-Route::get('atualizar_cliente_admin/{id}','AdminController@AtualizarClienteAdmin');
-Route::post('atualizando_cliente_admin','AdminController@atualizandoCliente');
-Route::get('cliente_pedidos_admin','IndexController@ClientePedidosAdmin');
-Route::get('detalhes_pedidos_admin/{id}','PedidoController@ClientePedidosDetalhesAdmin');
-Route::post('cadastrar_fornecedor','FornecedorController@CadastrarFornecedor');
-Route::post('atualizar_fornecedor','FornecedorController@AtualizarFornecedorDados');
-Route::get('excluir_fornecedor/{id}','FornecedorController@ExcluirFornecedor');
-Route::post('atualizar_produto','ProdutoController@AtualizarProdutoDados');
-Route::get('detalhes_fornecedor/{id}','ProdutoController@FornecedorDetalhes');
-Route::get('excluir_produto/{id}','ProdutoController@ExcluirProduto');
-Route::get('excluir_cliente/{id}','AdminController@ExcluirCliente');
-Route::get('cliente_agendamentos/{id}','AdminController@ClienteAgendamentos');
-Route::put('baixar_pedido/{id}','PedidoController@baixarPedido');
-Route::post('cadastrar_servico','ServicoController@CadastrarServico');
-Route::get('agendamentos_espera','PedidoController@ListarAgendamentosEmEspera');
-Route::get('reagendar/{id}','PedidoController@Reagendar');
-Route::post('confirmar_reagendamento','PedidoController@ReagendarAgendamento');
-Route::put('confirmar_agendamento/{id}','PedidoController@ConfirmarAgendamento');
-Route::get('pesquisa_lista_espera_cliente','PedidoController@PesquisarDataAgendamentoEmEspera');
-Route::get('pesquisar_clientes_horario_confirmado','PedidoController@pesquisarAgendamentosConfirmados');
-Route::get('cancelar_agendamento/{id}','PedidoController@CancelarAgendamento');
-Route::get('cancelar/{id}','PedidoController@getAgendamentoId');
-Route::get('agendamentos_cancelados','PedidoController@ListarAgendamentosCancelados');
-Route::get('pesquisar_agendamentos_cancelados','PedidoController@PesquisarAgendamentosCancelados');
+	Route::any('cadastro_produto',[
+		'as'=>'cadastro.produto',
+		'uses'=>'ProdutoController@CadastroProduto'
+	]);
+	Route::get('atualizar_produto/{id}',[
+		'as'=>'atualizar.produto',
+		'uses'=>'ProdutoController@AtualizarProduto'
+	]);
+	Route::get('listar_fornecedor',[
+		'as'=>'listar.fornecedor',
+		'uses'=>'FornecedorController@ListarFornecedor'
+	]);
+	Route::get('atualizar_fornecedor/{id}',[
+		'as'=>'atualizar.fornecedor',
+		'uses'=>'FornecedorController@AtualizarFornecedor'
+	]);
+	Route::get('listar_servicos_admin',[
+		'as'=>'listar.servicos.admin',
+		'uses'=>'ServicoController@ListarServicoAdmin'
+	]);
+	Route::get('atualizar_servico/{id}',[
+		'as'=>'atualizar.servico',
+		'uses'=>'ServicoController@AtualizarServico'
+	]);
+	Route::post('atualizandoservico',[
+		'as'=>'atualizando.servico',
+		'uses'=>'ServicoController@AtualizandoServico'
+	]);
+	Route::get('deletar_servico/{id}',[
+		'as'=>'deletar.servico',
+		'uses'=>'ServicoController@DeletarServico'
+	]);
+	Route::get('atualizar_cliente_admin/{id}',[
+		'as'=>'atualizar.cliente.admin',
+		'uses'=>'AdminController@AtualizarClienteAdmin'
+	]);
+	Route::post('atualizando_cliente_admin',[
+		'as'=>'atualizando.cliente.admin',
+		'uses'=>'AdminController@atualizandoCliente'
+	]);
+	Route::get('cliente_pedidos_admin',[
+		'as'=>'cliente.pedidos.admin',
+		'uses'=>'IndexController@ClientePedidosAdmin'
+	]);
+	Route::get('detalhes_pedidos_admin/{id}',[
+		'as'=>'detalhes.pedidos.admin',
+		'uses'=>'PedidoController@ClientePedidosDetalhesAdmin'
+	]);
+	Route::post('cadastrar_fornecedor',[
+		'as'=>'cadastrar.fornecedor',
+		'uses'=>'FornecedorController@CadastrarFornecedor'
+	]);
+	Route::post('atualizar_fornecedor',[
+		'as'=>'atualizar.fornecedor',
+		'uses'=>'FornecedorController@AtualizarFornecedorDados'
+	]);
+	Route::get('excluir_fornecedor/{id}',[
+		'as'=>'excluir.fornecedor',
+		'uses'=>'FornecedorController@ExcluirFornecedor'
+	]);
+	Route::post('atualizar_produto',[
+		'as'=>'atualizar.produto',
+		'uses'=>'ProdutoController@AtualizarProdutoDados'
+	]);
+	Route::get('detalhes_fornecedor/{id}',[
+		'as'=>'detalhes.fornecedor',
+		'uses'=>'ProdutoController@FornecedorDetalhes'
+	]);
+	Route::get('excluir_produto/{id}',[
+		'as'=>'excluir.produto',
+		'uses'=>'ProdutoController@ExcluirProduto'
+	]);
+	Route::get('excluir_cliente/{id}',[
+		'as'=>'excluir.cliente',
+		'uses'=>'AdminController@ExcluirCliente'
+	]);
+	Route::get('cliente_agendamentos/{id}',[
+		'as'=> 'cliente.agendamentos',
+		'uses'=>'AdminController@ClienteAgendamentos'
+	]);
+	Route::put('baixar_pedido/{id}',[
+		'as'=>'baixar.pedido',
+		'uses'=>'PedidoController@baixarPedido'
+	]);
+	Route::post('cadastrar_servico',[
+		'as'=>'cadastrar.servico',
+		'uses'=>'ServicoController@CadastrarServico'
+	]);
+	Route::get('agendamentos_espera',[
+		'as'=>'agendamentos.espera',
+		'uses'=>'PedidoController@ListarAgendamentosEmEspera'
+	]);
+	Route::get('reagendar/{id}',[
+		'as'=>'reagendar',
+		'uses'=>'PedidoController@Reagendar'
+	]);
+	Route::post('confirmar_reagendamento',[
+		'as'=>'confirmar.reagendamento',
+		'uses'=>'PedidoController@ReagendarAgendamento'
+	]);
+	Route::put('confirmar_agendamento/{id}',[
+		'as'=>'confirmar.agendamento',
+		'uses'=>'PedidoController@ConfirmarAgendamento'
+	]);
+	Route::get('pesquisa_lista_espera_cliente',[
+		'as'=>'pesquisa.lista.espera.cliente',
+		'uses'=>'PedidoController@PesquisarDataAgendamentoEmEspera'
+	]);
+	Route::get('pesquisar_clientes_horario_confirmado',[
+		'as'=>'pesquisar.cliente.horario.confirmado',
+		'uses'=>'PedidoController@pesquisarAgendamentosConfirmados'
+	]);
+	Route::get('cancelar_agendamento/{id}',[
+		'as'=>'cancelar.agendamento',
+		'uses'=>'PedidoController@CancelarAgendamento'
+	]);
+	Route::get('cancelar/{id}',[
+		'as'=>'cancelar',
+		'uses'=>'PedidoController@getAgendamentoId'
+	]);
+	Route::get('agendamentos_cancelados',[
+		'as'=>'agendamentos.cancelados',
+		'uses'=>'PedidoController@ListarAgendamentosCancelados'
+	]);
+	Route::get('pesquisar_agendamentos_cancelados',[
+		'as'=>'pesquisar.agendamentos.cancelados',
+		'uses'=>'PedidoController@PesquisarAgendamentosCancelados'
+	]);
 });
 
