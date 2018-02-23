@@ -40,9 +40,9 @@
               <td>{{$p->nome_produto}}</td>
               <td>{{$p->fornecedor->nome_fornecedor}}</td>
               <td>R$:{{$p->preco}}</td>
-              <td><a class="btn btn-primary" href="{{url('atualizar_produto',$p->id_produto)}}">Atualizar informações</a></td>
-              <td><a class="btn btn-primary" href="{{url('produto_id',$p->id_produto)}}">Excluir Produto</a></td>
-              <td><a class="btn btn-primary" data-target="#myModal-{{ $p->id_fornecedor }}" data-toggle="modal" href="{{url('detalhes_fornecedor',$p->id_fornecedor)}}">Vizualizar informações</a></td>
+              <td><a class="btn btn-primary" href="{{route('atualizar.produto',$p->id_produto)}}">Atualizar informações</a></td>
+              <td><a class="btn btn-primary" href="{{route('produto',$p->id_produto)}}">Excluir Produto</a></td>
+              <td><a class="btn btn-primary" data-target="#myModal-{{ $p->id_fornecedor }}" data-toggle="modal" href="{{route('detalhes.fornecedor',$p->id_fornecedor)}}">Vizualizar informações</a></td>
             </tr>
           </tbody>
         @endforeach

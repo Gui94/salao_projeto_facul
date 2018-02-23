@@ -34,7 +34,7 @@ select{
           @endif
           <br/>
           <strong>Pesquisar os agendamentos que estao na lista de espera de determinado cliente</strong>
-          <form action="{{url('pesquisa_lista_espera_cliente')}}" method="GET">
+          <form action="{{route('pesquisa.lista.espera.cliente')}}" method="GET">
             Lista de Clientes:
             <select name="clientes">
               @foreach($cliente as $f)
@@ -43,7 +43,7 @@ select{
             </select><br/>
             <input type="submit" value="pesquisar" class="btn btn-primary btn-block">
           </form>
-          <form action="{{url('pesquisar_clientes_horario_confirmado')}}" method="get">
+          <form action="{{route('pesquisar.cliente.horario.confirmado')}}" method="get">
             <strong>Pesquisar agendamentos confirmados pela data</strong><input type="text" class="form-control" name="pesquisa_data">
             <input type="submit" class="btn btn-primary btn-block" value="pesquisar"><br/><br/>
           </form>
@@ -77,8 +77,8 @@ select{
                   <td>{{$c->name}} {{$c->sobrenome}} </td>
                   <td>Residencial: {{preg_replace('~.*(\d{2})[^\d]{0,7}(\d{4})[^\d]{0,7}(\d{4}).*~', '$1 $2 $3',$c->telefone_residencial)}}<br/><br/>Celular: {{preg_replace('~.*(\d{2})[^\d]{0,7}(\d{4})[^\d]{0,7}(\d{4}).*~', '$1 $2 $3',$c->telefone_celular)}} </td>
                   <td><a class="btn btn-primary" href="{{url('detalhes_pedidos_admin',$p->id_pedido)}}">Mais detalhes</a></td>
-                  <td><a class="btn btn-primary" href="{{url('reagendar',$p->id_pedido)}}">Reagendar</a></td>
-                  <td><a class="btn btn-primary" href="{{url('cancelar',$p->id_pedido)}}">Cancelar</a></td>
+                  <td><a class="btn btn-primary" href="{{route('reagendar',$p->id_pedido)}}">Reagendar</a></td>
+                  <td><a class="btn btn-primary" href="{{route('cancelar',$p->id_pedido)}}">Cancelar</a></td>
               </tr>
             </tbody>
         </table>

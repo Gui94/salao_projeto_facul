@@ -15,7 +15,7 @@
 	<p class="mensagem_error">{{$errors->first('marca_produto',':message')}}</p>
 </div>
 @endif
-<form action="{{url('cadastrando_marca_produto')}}" method="post">
+<form action="{{route('cadastrando.marca.produto')}}" method="post">
 	Marca do produto:
 	<input class="form" type="text" name="marca_produto"><br/><br/>
 	<input type="submit" class="btn btn-primary" value="cadastrar">

@@ -50,7 +50,7 @@ h2{
                     <br/>
                     <br/>   
                     <h2>Atualizar suas informações cadastrais</h2>
-                    <form action="{{url('atualizandoclientedados')}}" method="post">
+                    <form action="{{route('atualizando.cliente.dados')}}" method="post">
                         <input type="hidden" value="{{$cliente->id}}" name="id">
                         @if($errors->has())     
                             <br/>

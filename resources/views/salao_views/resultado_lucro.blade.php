@@ -42,7 +42,7 @@
                 @if($p->id == $c->id)
               <td>{{$c->name}} {{$c->sobrenome}} </td>
               <td>Residencial:{{$c->telefone_residencial}}<br/>Celular:{{$c->telefone_celular}} </td>
-              <td><a class="btn btn-primary" href="{{url('detalhes_pedidos_admin',$p->id_pedido)}}">Mais detalhes</a></td>
+              <td><a class="btn btn-primary" href="{{route('detalhes.pedidos.admin',$p->id_pedido)}}">Mais detalhes</a></td>
             </tr>
           </tbody>
         </table>

@@ -85,14 +85,14 @@
                 <div style="display:table; margin:0 auto;">
                     @foreach($servico as $s)
                         <div class="grid1_of_3">
-                            <a href="{{url('detalhes',$s->id_servico)}}">
+                            <a href="{{route('detalhes',$s->id_servico)}}">
                                 <img class="img_servico_promocao" src="{{route('imagem.file',$s->imagem)}}" alt="{{$s->imagem}}">
                                 <h3>{{$s->nome_servico}}</h3>
                                 <div class="price">
                                     <h4>De: R${{$s->preco}}<span>Por: R${{$s->preco_desconto}}</span></h4>
                                 </div>
                             </a>
-                            <a href="{{url('detalhes',$s->id_servico)}}" class="btn btn-info">Mais Detalhes</a>
+                            <a href="{{route('detalhes',$s->id_servico)}}" class="btn btn-info">Mais Detalhes</a>
                         </div>
                     @endforeach
                 </div>

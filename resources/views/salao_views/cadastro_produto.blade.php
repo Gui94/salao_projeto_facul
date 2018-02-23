@@ -53,7 +53,6 @@ select{
                        @endforeach
                     </div>
                     <div id="forms">
-                    @if($errors->has())
                         <form action="" method="POST">
                             <div class="form-group">
                                 <label for="nome_produto">Nome do produto:</label>
@@ -76,7 +75,6 @@ select{
                                 <p class="mensagem_error">{{$errors->first('id_fornecedor',':message')}}</p>
                             </div>
                             <input type="submit" class="btn btn-primary btn-lg btn-block" value="cadastrar">
-                            @endif
                         </form>
                     </div>
                 </div>

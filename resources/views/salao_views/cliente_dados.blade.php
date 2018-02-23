@@ -63,7 +63,7 @@ h2{
 					<p>Endereço:{{Session::get('endereco')}}</p>
 					<br/>
 					<br/>
-					<a class="btn btn-primary btn-lg" href="{{url('atualizarcliente_form',Session::get('id'))}}">Atualizar</a>
+					<a class="btn btn-primary btn-lg" href="{{route('atualizar.cliente.form',Session::get('id'))}}">Atualizar</a>
 				</div>
 			</div>
 		</div>

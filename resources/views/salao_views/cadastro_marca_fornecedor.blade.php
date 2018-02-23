@@ -21,7 +21,7 @@
                 	<p class="mensagem_error">{{$errors->first('marca_fornecedor',':message')}}</p>
                 </div>
                 @endif
-                <form action="{{url('cadastrando_marca_fornecedor')}}" method="post">
+                <form action="{{route('cadastro.marca.fornecedor')}}" method="post">
                 	Marca do produto:<input  value="{{old('marca_fornecedor')}}" class="form-control" type="text" name="marca_fornecedor"><br/><br/>
                 	<input type="submit" class="btn btn-primary btn-lg btn-block" value="cadastrar">
                 </form>

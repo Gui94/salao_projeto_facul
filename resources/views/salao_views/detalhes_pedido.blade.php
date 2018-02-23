@@ -90,7 +90,7 @@ thead{
 <div class="main_bg">
 	<div class="wrap">	
 		<div class="main">
-		<a class="btn btn-info btn-lg" href="{{url('pedidos')}}">Voltar para meus agendamentos</a>
+		<a class="btn btn-info btn-lg" href="{{route('pedidos')}}">Voltar para meus agendamentos</a>
 		<br/>
 		<table class="table table-bordered">
 			<thead>

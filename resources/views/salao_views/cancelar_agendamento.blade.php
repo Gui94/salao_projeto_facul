@@ -56,8 +56,8 @@
         <table class="table">
           <thead>
             <tr>
-              <th><a href="{{url('cancelar_agendamento',$agendamento->id_pedido)}}" class="btn btn-primary btn-block">Sim</a></th>
-              <th><a href="{{url('agendamentos_espera')}}"  class="btn btn-info btn-block">Não</a></th>
+              <th><a href="{{route('cancelar.agendamento',$agendamento->id_pedido)}}" class="btn btn-primary btn-block">Sim</a></th>
+              <th><a href="{{route('agendamentos.espera')}}"  class="btn btn-info btn-block">Não</a></th>
             </tr>
           </thead>
           <tbody>

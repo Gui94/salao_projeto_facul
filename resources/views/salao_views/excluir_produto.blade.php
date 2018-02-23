@@ -39,8 +39,8 @@ strong{
 					</tr>
 					</table>
 					<h4>Tem certeza que quer excluir:<strong>{{$produto->nome_produto}}?</strong></h4>
-					<a class="btn btn-primary" href="{{url('excluir_produto/'.$produto->id_produto)}}">Sim</a>
-					<a class="btn btn-info" href="{{url('listar_estoque')}}">Não</a>
+					<a class="btn btn-primary" href="{{route('excluir.produto',$produto->id_produto)}}">Sim</a>
+					<a class="btn btn-info" href="{{route('listar.produto')}}">Não</a>
 				</center>
 			</div>
 		</div>

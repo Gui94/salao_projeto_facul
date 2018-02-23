@@ -30,8 +30,8 @@
 						<tr>
 						<td>{{$m->id_marca_fornecedor}}</td>
 						<td>{{$m->nome}}</td>
-						<td><a class="btn btn-primary" href="{{url('atualizar_marca_fornecedor/'.$m->id_marca_fornecedor)}}">Atualizar</a></td>
-						<td><a class="btn btn-info" href="{{url('excluir_marca_fornecedor/'.$m->id_marca_fornecedor)}}">Excluir</a></td>
+						<td><a class="btn btn-primary" href="{{route('atualizar.marca.fornecedor',$m->id_marca_fornecedor)}}">Atualizar</a></td>
+						<td><a class="btn btn-info" href="{{route('excluir.marca.fornecedor',$m->id_marca_fornecedor)}}">Excluir</a></td>
 						</tr>
 					</tbody>
 					@endforeach

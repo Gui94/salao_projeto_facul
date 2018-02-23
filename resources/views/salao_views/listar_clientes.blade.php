@@ -33,9 +33,9 @@
 						<td>{{preg_replace('~.*(\d{2})[^\d]{0,7}(\d{4})[^\d]{0,7}(\d{4}).*~', '$1 $2 $3',$u->telefone_celular)}}</td>
 						<td>{{preg_replace('~.*(\d{2})[^\d]{0,7}(\d{4})[^\d]{0,7}(\d{4}).*~', '$1 $2 $3',$u->telefone_residencial)}}</td>
 						<td>{{$u->email}}</td>
-						<td><a class="btn btn-primary" href="{{url('atualizar_cliente_admin',$u->id)}}">Atualizar</a></td>
-						<td><a class="btn btn-info" href="{{url('cliente_id',$u->id)}}">Excluir</a><qtd>
-						<td><a class="btn btn-primary" href="{{url('cliente_agendamentos',$u->id)}}">Agendamentos</a></td>
+						<td><a class="btn btn-primary" href="{{route('atualizar.cliente.admin',$u->id)}}">Atualizar</a></td>
+						<td><a class="btn btn-info" href="{{route('cliente',$u->id)}}">Excluir</a><qtd>
+						<td><a class="btn btn-primary" href="{{route('cliente.agendamentos',$u->id)}}">Agendamentos</a></td>
 					</tbody>
 					@endforeach
 				</table>

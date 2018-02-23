@@ -41,14 +41,14 @@
                 <td>Não Pago</td>
                 @endif
                 <td>{{$p->users->name}}</td>
-                <td><a class="btn btn-primary" href="{{url('detalhes_pedidos_admin',$p->id_pedido)}}">Mais detalhes</a></td>
+                <td><a class="btn btn-primary" href="{{route('detalhes.pedidos.admin',$p->id_pedido)}}">Mais detalhes</a></td>
                 @if($p->lista_espera == true)
-                <td><a class="btn btn-primary" href="{{url('reagendar',$p->id_pedido)}}">Reagendar</a></td>
+                <td><a class="btn btn-primary" href="{{route('reagendar',$p->id_pedido)}}">Reagendar</a></td>
                 @else
                 <td>horario confirmado</td>
                 @endif
                 @if($p->lista_espera == true)
-                <td><a class="btn btn-primary" href="{{url('cancelar',$p->id_pedido)}}">Cancelar</a></td>
+                <td><a class="btn btn-primary" href="{{route('cancelar',$p->id_pedido)}}">Cancelar</a></td>
                 @else
                 <td>horario confirmado</td>
                 @endif

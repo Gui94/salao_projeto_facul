@@ -35,8 +35,8 @@
         		<td class="coluna"><img height="45px" src="{{route('imagem.file',$s->imagem)}}" alt="{{$s->imagem}}"><td>
         		<td class="coluna">{{$s->nome_servico}}<td>
         		<td class="coluna">{{$s->preco}}<td>
-        		<td class="coluna"><a class="btn btn-primary" href="{{url('atualizar_servico',$s->id_servico)}}">Atualizar</a><td>
-        		<td class="coluna"><a class="btn btn-info" href="{{url('servico_id',$s->id_servico)}}">Excluir</a><td>
+        		<td class="coluna"><a class="btn btn-primary" href="{{route('atualizar.servico',$s->id_servico)}}">Atualizar</a><td>
+        		<td class="coluna"><a class="btn btn-info" href="{{route('servico',$s->id_servico)}}">Excluir</a><td>
         	</body>
         	@endforeach
         </table>

@@ -101,7 +101,7 @@ strong{
 				</select><i class="fa fa-angle-center"></i></td>
 				<td colspan="2" class="hidden-xs"></td>
 				@if(session('cliente') == '')
-					<td><a href="{{url('cadastro_login')}}" class="btn btn-primary">Precisa estar logado para finalizar<i class="fa fa-angle-right"></i></a></td>
+					<td><a href="{{route('cadastro.login')}}" class="btn btn-primary">Precisa estar logado para finalizar<i class="fa fa-angle-right"></i></a></td>
 				@else
 					<td><input type="submit" value="finalizar" class="btn btn-primary"><i class="fa fa-angle-right"></i></td>
 				@endif
@@ -149,7 +149,7 @@ strong{
 	        	<font color="red"><h2>Ja foi agendado neste dia e neste horario,caso queira confirmar mesmo assim,voce entrara na lista de espera para confirmação do horario ou agendar em outro dia e horario,tem certeza de que quer continuar?</h2></font>
 	      	</div>
 	      	<div class="modal-footer">
-	      	{!!Form::open(array('url' => 'gerar_pedido_espera','method'=>'post'))!!}
+	      	{!!Form::open(array('route' => 'gerar.pedido.espera','method'=>'post'))!!}
 	        	<input type="submit"  class="btn btn-primary" value="Sim">
 	        	<button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
 	        {{ Form::close() }}

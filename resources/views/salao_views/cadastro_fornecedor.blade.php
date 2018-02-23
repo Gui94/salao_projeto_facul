@@ -55,8 +55,8 @@
                       @endif
                     @endforeach
                 </div>
-                <a class="btn btn-primary" href="{{url('cadastro_marca_fornecedor')}}">Cadastrar Marcas dos fornecedores</a><br/><br/>
-                <a class="btn btn-primary" href="{{url('listar_fornecedor')}}">Listar Fornecedores Cadastrados</a><br/><br/>
+                <a class="btn btn-primary" href="{{route('cadastro.marca.fornecedor.form')}}">Cadastrar Marcas dos fornecedores</a><br/><br/>
+                <a class="btn btn-primary" href="{{route('listar.fornecedor')}}">Listar Fornecedores Cadastrados</a><br/><br/>
                 <form action="cadastrar_fornecedor" method="POST">
                     <p>Nome do fornecedor:</p><input value="{{old('nome_fornecedor')}}" class="form-control" type="text" name="nome_fornecedor"><br/>
                     Marcas:

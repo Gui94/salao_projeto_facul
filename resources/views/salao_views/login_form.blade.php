@@ -21,7 +21,7 @@
     <div class="panel panel-info">
         <div class="panel-heading">Digite seu email e senha para logar na sua conta</div>
         <div class="panel-body">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('autenticando_cliente') }}">
+            <form class="form-horizontal" role="form" method="POST" action="{{ route('autenticando.cliente') }}">
                 {!! csrf_field() !!}
                 <div class="form-group{{ $errors->has('email_login') ? ' has-error' : '' }}">
                     <label class="col-md-4 control-label">E-Mail</label>

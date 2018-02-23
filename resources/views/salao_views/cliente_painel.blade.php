@@ -29,7 +29,7 @@ a:hover{
             <p style="font-size:25px">Bem vindo(a):{{Session::get('nome_cliente')}} {{Session::get('sobrenome')}}</p>
         </div>
         <br/>
-        <a href="{{url('pedidos')}}" > 
+        <a href="{{route('pedidos')}}" > 
          <div class="row text-center pad-top">
             <div class="col-lg-2 col-md-offset-3 col-sm-2 col-xs-6">
               <div class="div-square">
@@ -38,7 +38,7 @@ a:hover{
               </div>
         </a>
     </div> 
-    <a href="{{url('cliente_dados')}}" >
+    <a href="{{route('cliente.dados')}}" >
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
       <div class="div-square">    
           <i class="fa fa-info fa-5x"></i>
@@ -46,7 +46,7 @@ a:hover{
       </div>
     </a>
     </div>
-    <a href="{{url('sair_cliente')}}" >
+    <a href="{{route('sair.cliente')}}" >
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
         <div class="div-square">
             <i class="fa fa-sign-out fa-5x"></i>

@@ -25,8 +25,7 @@
                 <h2 class="text-center">Cadastro de novos serviços</h2><br/>   
                 <a class="btn btn-primary" href="listar_servicos_admin">Listar Serviços cadastrados</a><br/><br/>
                 <div id="forms">
-    	             @if($errors->has())
-                    {!! Form::open(array('url' =>'cadastrar_servico'))!!}
+                    {!! Form::open(array('route' =>'cadastrar.servico'))!!}
                       <p class="mensagem_error">{{$errors->first('nome_servico',':message')}}</p>
                         <p>Nome do serviço:</p><input class="form-control" value="{{old('nome_servico')}}"  type="text" name="nome_servico">
                       <p class="mensagem_error">{{$errors->first('preco',':message')}}</p>
@@ -45,7 +44,6 @@
                       <br/>
                       <input type="submit" class="btn btn-primary btn-lg btn-block" value="cadastrar">
                     </form>
-                  @endif
                 </div>
               </div>
           </div>

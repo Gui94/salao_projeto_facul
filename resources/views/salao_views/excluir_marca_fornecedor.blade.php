@@ -39,8 +39,8 @@ strong{
 					</tr>
 				</table>
 				<h4>Tem certeza que quer excluir:<strong color="red">{{$marca->nome}}?</strong></h4>
-				<a class="btn btn-primary" href="{{url('deletar_marca_fornecedor/'.$marca->id_marca_fornecedor)}}">Sim</a>
-				<a class="btn btn-info" href="{{url('listar_marca_fornecedor')}}">Não</a>
+				<a class="btn btn-primary" href="{{route('deletar.marca.fornecedor',$marca->id_marca_fornecedor)}}">Sim</a>
+				<a class="btn btn-info" href="{{route('listar.marca.fornecedor')}}">Não</a>
 			</center>
 		</div>
 	</div>

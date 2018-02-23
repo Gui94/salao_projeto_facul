@@ -44,7 +44,7 @@ select{
         @forelse ($pedido as $p)
           @if($p->cancelado == true)
           <strong>Pesquisar agendamentos cancelados de cada cliente</strong>
-          <form action="{{url('pesquisar_agendamentos_cancelados')}}" method="POST">
+          <form action="{{route('pesquisar.agendamentos.cancelados')}}" method="POST">
             Lista de Clientes:
             <select  name="clientes">
             @foreach($cliente as $f)
@@ -81,7 +81,7 @@ select{
                 <th>Não Pago</th>
               @endif
                 <th>{{$p->users->name}}</th>
-                <th><a class="btn btn-primary" href="{{url('detalhes_pedidos_admin',$p->id_pedido)}}">Mais detalhes</a></th>
+                <th><a class="btn btn-primary" href="{{route('detalhes.pedidos.admin',$p->id_pedido)}}">Mais detalhes</a></th>
               @if($p->pago == false)
                 @if($p->cancelado == true)
                 @else

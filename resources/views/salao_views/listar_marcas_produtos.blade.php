@@ -14,8 +14,8 @@
 		<tr>
 			<th class="coluna">{{$m->id_marca_produto}}</th>
 			<th class="coluna">{{$m->nome}}</th>
-			<th class="coluna"><a class="btn btn-success" href="{{url('atualizar_marca_produto/'.$m->id_marca_produto)}}">Atualizar</a></th>
-			<th class="coluna"><a class="btn btn-danger" href="{{url('excluir_marca_produto/'.$m->id_marca_produto)}}">Excluir</a></th>
+			<th class="coluna"><a class="btn btn-success" href="{{route('atualizar.marca.produto',$m->id_marca_produto)}}">Atualizar</a></th>
+			<th class="coluna"><a class="btn btn-danger"  href="{{route('excluir.marca.produto',$m->id_marca_produto)}}">Excluir</a></th>
 		</tr>
 	</tbody>
 	@endforeach

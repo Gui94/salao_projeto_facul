@@ -91,7 +91,7 @@ thead{
 			      <th>{{$p->data_agendamento}}</th>
 			      <td>{{$p->horario}}</td>
 			      <td>R$:{{$p->total}}</td>
-			      <td><a class="btn btn-info" href="{{url('pedido_detalhes',$p->id_pedido)}}">Mais detalhes</a></td>
+			      <td><a class="btn btn-info" href="{{route('pedido.detalhes',$p->id_pedido)}}">Mais detalhes</a></td>
 			    </tr>
 			  </tbody>
 			  @endforeach

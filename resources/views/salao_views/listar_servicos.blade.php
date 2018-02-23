@@ -83,7 +83,7 @@ p{
 					<div class="grid1_of_3">
 						@if($l->promocao == true)<!-- VERIFICO SE ESTA EM PROMOCÃO,SE SIM,CARREGA O BLOCO DE CODIGO ABAIXO -->
 						<font color="#009999">Promoção!!!!</font>
-						<a href="{{url('detalhes',$l->id_servico)}}">
+						<a href="{{route('detalhes',$l->id_servico)}}">
 							<img class="img_servico_promocao" src="{{route('imagem.file',$l->imagem)}}" alt="{{$l->imagem}}">
 							<h3>{{$l->nome_servico}}</h3>
 							<div class="price">
@@ -91,14 +91,14 @@ p{
 							</div>
 							@else<!-- SE NÃO,CARREGA O BLOCO DE CODIGO ABAIXO-->
 						<div class="price">
-							<a href="{{url('detalhes',$l->id_servico)}}">
+							<a href="{{route('detalhes',$l->id_servico)}}">
 							<img class="img_servico_promocao" src="{{route('imagem.file',$l->imagem)}}" alt="{{$l->imagem}}">
 							<h3>{{$l->nome_servico}}</h3>
 							<h4>Preço:<span>R${{$l->preco}}</span></h4>
 						</div>
 							@endif<!-- TERMINA CONDIÇÃO -->
 						</a>
-						<a href="{{url('detalhes',$l->id_servico)}}" class="btn btn-info">Mais Detalhes</a>
+						<a href="{{route('detalhes',$l->id_servico)}}" class="btn btn-info">Mais Detalhes</a>
 					</div>
 				@endforeach<!-- TERMINA A LISTAGEM -->
 				</div>

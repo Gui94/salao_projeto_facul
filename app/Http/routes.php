@@ -223,7 +223,7 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
         'uses'=>'IndexController@AtualizandoMarcaProduto'
     ]);
     Route::get('cadastro_marca_fornecedor',[
-        'as'=>'cadastro.marca.fornecedor',
+        'as'=>'cadastro.marca.fornecedor.form',
         'uses'=>'FornecedorController@FormMarcaFornecedor'
     ]);
     Route::get('listar_marca_fornecedor',[

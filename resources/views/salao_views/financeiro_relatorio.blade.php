@@ -32,7 +32,7 @@ thead{
 	right:115px;
 }
 </style>
-<a class="detalhes" href="financeiro_form">Voltar</a>
+<a class="detalhes" href="{{route('financeiro.form')}}">Voltar</a>
 <br/>
 <br/>
 <center>

@@ -41,7 +41,7 @@ h1{
 }
 </style>
 <br/>
-{!!Form::open(array('url' => 'gerar_pedido','method'=>'post'))!!}
+{!!Form::open(array('route' => 'gerar.pedido','method'=>'post'))!!}
 <!--<input type="hidden" name="horario" value="{{$horario}}"> -->
 	<div class="main_bg">
 		<div class="wrap">	
@@ -53,7 +53,7 @@ h1{
 				<input type="hidden" name="data_agendamento" value="{{$data_agendamento}}">
 				<input type="submit" class="btn btn-info btn-block"   value="Sim">
 				<br/>
-				<a  class="btn btn-primary btn-block" href="{{url('carrinho')}}">Não</a>
+				<a  class="btn btn-primary btn-block" href="{{route('carrinho')}}">Não</a>
 			{{ Form::close() }}
 			</div>
 		</div>

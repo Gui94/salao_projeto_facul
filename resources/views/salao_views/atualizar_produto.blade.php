@@ -58,12 +58,11 @@
 				<div class="mensagem">
 				    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
 				      @if(Session::has('alert-' . $msg))
-
 				      <p class="mensagem">{{ Session::get('alert-'.$msg) }}</p>
 				      @endif
 				    @endforeach
 				</div><br/>
-				{!! Form::open(array('url' =>'atualizar_produto'))!!}
+				{!! Form::open(array('route' =>'atualizar.produto'))!!}
 					<input type="hidden" value="{{$produto['id_produto']}}" name="id_produto">
 						<p>Nome do produto</p><input class="form-control" type="text" value="{{$produto['nome_produto']}}" name="nome_produto"><br/>
 						<p>Preço:</p><input type="text" class="form-control" value="{{$produto['preco']}}" name="preco"><br/><br/>

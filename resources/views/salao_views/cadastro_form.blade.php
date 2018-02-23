@@ -23,7 +23,7 @@ input{
     <div class="panel panel-info">
         <div class="panel-heading">Preencha os formulários para cadastrar</div>
         <div class="panel-body">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('cadastrar_usuario') }}"">
+            <form class="form-horizontal" role="form" method="POST" action="{{ route('cadastrar.usuario') }}"">
                 {!! csrf_field() !!}
                 <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
                     <label class="col-md-4 control-label">Nome</label>

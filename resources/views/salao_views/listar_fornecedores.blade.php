@@ -103,8 +103,8 @@
 							<td>{{$f->nome_fornecedor}}</td>
 							<td>{{$m->nome}}</td>
 							<td>{{$f->telefone}}</td>
-							<td><a class="btn btn-primary" href="{{url('atualizar_fornecedor/'.$f->id_fornecedor)}}">Atualizar</a></td>
-							<td><a class="btn btn-info" href="{{url('fornecedor_id/'.$f->id_fornecedor)}}">Excluir</a></td>
+							<td><a class="btn btn-primary" href="{{route('atualizar.fornecedor',$f->id_fornecedor)}}">Atualizar</a></td>
+							<td><a class="btn btn-info" href="{{route('fornecedor',$f->id_fornecedor)}}">Excluir</a></td>
 						</tr>
 					</tbody>
 					@endif

@@ -40,8 +40,8 @@ strong{
 					</tr>
 				</table>
 				<h4>Tem certeza que quer excluir:<strong>{{$cliente->name}}?</strong></h4>
-				<a class="btn btn-primary" href="{{url('excluir_cliente/'.$cliente->id)}}">Sim</a>
-				<a class="btn btn-info" href="{{url('listar_clientes')}}">Não</a>
+				<a class="btn btn-primary" href="{{route('excluir.cliente',$cliente->id)}}">Sim</a>
+				<a class="btn btn-info" href="{{route('listar.cliente')}}">Não</a>
 			</center>
 		</div>
 	</div>

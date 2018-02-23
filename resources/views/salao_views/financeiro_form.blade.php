@@ -50,11 +50,10 @@
                 </div>
                 <br/>
                 <br/>
-                <a class="btn btn-primary" href="{{url('lucro_do_dia')}}">Faturamento do dia</a>
+                <a class="btn btn-primary" href="{{route('lucro.do.dia')}}">Faturamento do dia</a>
                 <br/>
                 <br/>
-                @if($errors->has())
-                <form action="{{url('pesquisar_data')}}" method="get">
+                <form action="{{route('pesquisar.data')}}" method="get">
                     Digite a data de inicio:<input type="text" name="data" class="form-control">
                     <p class="mensagem_error">{{$errors->first('data',':message')}}</p>
                     <br/>
@@ -63,7 +62,6 @@
                     <br/>
                     <input type="submit" class="btn btn-primary btn-lg btn-block" value="calcular">
                 </form>
-                @endif
             </div>
         </div>
     </div>

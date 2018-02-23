@@ -63,7 +63,7 @@
             </thead>
             <tbody>
               <tr>
-                <form action="{{url('confirmar_reagendamento')}}" method="POST">
+                <form action="{{route('confirmar.reagendamento')}}" method="POST">
                   <input type="hidden" value="{{$agendamento->id_pedido}}" name="id">
                   <th><input type="text" id="datepicker" name="data_agendamento" ></th>
                   <td>
