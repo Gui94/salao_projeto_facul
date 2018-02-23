@@ -3,45 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-
 use App\models\EventModel;
-
 use App\Servico;
-
 use App\Pedido;
-
 use App\Carrinho;
-
 use App\ItemPedido;
-
 use App\Fornecedor;
-
 use MaddHatter\LaravelFullcalendar\Event;
-
 use DB;
-
 use App\Relatorio;
-
 use Session;
-
 use Auth;
-
 use App\User;
-
 use App\FornecedorMarca;
 
 class ClienteController extends Controller{
 
 	public function ClientePainel(){
-        return view('salao_views/cliente_painel');
+        return view('cliente/cliente_painel');
     }
 
     public function ClientePedidos(){
         $id = \Session::get('id');//pego o id do cliente que esta logado na sessão
         $pedido = Pedido::where('id',$id)->orderBy('data_agendamento')->paginate(10);//consulta para poder listar somente os agendamentos do cliente logado
-        return view('salao_views/cliente_pedidos',['pedido'=>$pedido]);//retorno a pagina com o array dos agendamentos,compact('pedido')
+        return view('cliente/cliente_pedidos',['pedido'=>$pedido]);//retorno a pagina com o array dos agendamentos,compact('pedido')
     }
 
     public function ClientePedidosDetalhes($id){
@@ -51,21 +37,21 @@ class ClienteController extends Controller{
             \Session::flash('erro','teste');
             return redirect('pedidos');
         }else{
-        return view('salao_views/detalhes_pedido',compact('pedido','servico'));
+        return view('cliente/detalhes_pedido',compact('pedido','servico'));
         }
     }
 
     public function ClienteDados(){
-        return view('salao_views/cliente_dados');
+        return view('cliente/cliente_dados');
     }
 
     public function ClienteDadosEditar(){
-        return view('salao_views/cliente_dados_alterar');
+        return view('cliente/cliente_dados_alterar');
     }
 
     public function AtualizarClienteForm($id){
         $cliente = User::find($id);
-        return view('salao_views/cliente_dados_alterar',compact('cliente'));
+        return view('cliente/cliente_dados_alterar',compact('cliente'));
     }
 
     public function AtualizandoClienteInfos(request $request){

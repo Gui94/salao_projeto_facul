@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\FornecedorMarca;
 
-class Fornecedor extends Model
-{
+class Fornecedor extends Model{
    public $timestamps = false;	
    protected $table = 'fornecedor';
    protected $fillable = array('nome_fornecedor','marca','telefone','id_fornecidor','id_marca_fornecedor');

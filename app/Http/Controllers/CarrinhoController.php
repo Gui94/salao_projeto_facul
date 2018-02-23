@@ -43,7 +43,7 @@ class CarrinhoController extends Controller {
 
     function getListar() {
         $models = $this->getCarrinhoModels();
-        return view('salao_views/carrinho_listar', $models);
+        return view('cliente/carrinho', $models);
     }
 
     function getEsvaziar() {
