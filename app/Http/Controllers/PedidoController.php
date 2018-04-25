@@ -109,13 +109,13 @@ class PedidoController extends Controller {
         $pesquisa = $_REQUEST['clientes'];
         $agendamento = Pedido::where('cancelado',TRUE)->where('id',$pesquisa)->orderBy('data_agendamento')->get();
         $cliente = User::orderBy('name')->get();
-        return view('salao_views/lista_espera_cliente',compact('cliente','agendamento'));
+        return view('admin/agendamento/lista_espera_cliente',compact('cliente','agendamento'));
     }
 
     public function ListarAgendamentosCancelados(){
         $pedido = Pedido::where('cancelado',TRUE)->orderBy('data_agendamento')->paginate(6);
         $cliente = User::orderBy('name')->get();
-        return view('salao_views/agendamentos_cancelados',compact('pedido','cliente'));
+        return view('admin/agendamento/listar_agendamentos_cancelados',compact('pedido','cliente'));
     }
 
     public function CancelarAgendamento($id){
@@ -129,7 +129,7 @@ class PedidoController extends Controller {
 
     public function getAgendamentoId($id){
         $agendamento = Pedido::find($id);
-        return view('salao_views/cancelar_agendamento',compact('agendamento'));
+        return view('admin/agendamento/cancelar_agendamento',compact('agendamento'));
     }
 
     public function pesquisarAgendamentosConfirmados(request $request){
@@ -140,14 +140,14 @@ class PedidoController extends Controller {
         $pesquisa = $_REQUEST['pesquisa_data'];
         $agendamento = Pedido::where('data_agendamento',$pesquisa)->where('confirmacao',TRUE)->get();
         $cliente = User::orderBy('name')->get();
-        return view('salao_views/lista_espera_cliente',compact('cliente','agendamento'));
+        return view('admin/agendamento/lista_espera_cliente',compact('cliente','agendamento'));
     }
 
     public function PesquisarDataAgendamentoEmEspera(request $request){
         $pesquisa = $_REQUEST['clientes'];
         $agendamento = Pedido::where('lista_espera',TRUE)->where('id',$pesquisa)->orderBy('data_agendamento')->get();
         $cliente = User::orderBy('name')->get();
-        return view('salao_views/lista_espera_cliente',compact('cliente','agendamento'));
+        return view('admin/agendamento/lista_espera_cliente',compact('cliente','agendamento'));
     }
 
     public function ConfirmarAgendamento(request $request,$id){
@@ -191,7 +191,7 @@ class PedidoController extends Controller {
 
     public function Reagendar($id){
         $agendamento = Pedido::find($id);
-        return view('salao_views/reagendar',compact('agendamento'));
+        return view('admin/agendamento/reagendar',compact('agendamento'));
     }
 
     public function ListarAgendamentosEmEspera(){
@@ -199,7 +199,7 @@ class PedidoController extends Controller {
         $formato_data = \Carbon\Carbon::parse($data)->format('d/m/Y');
         $agendamento = Pedido::orderBy('data_agendamento')->where('data_agendamento','=',$formato_data)->where('lista_espera',TRUE)->get();
         $cliente = User::orderBy('name')->get();
-        return view('salao_views/listar_agendamentos_espera',compact('agendamento','cliente','consulta'));
+        return view('admin/agendamento/listar_agendamentos_espera',compact('agendamento','cliente','consulta'));
     }
 
     public function PesquisarDataAgendamento(request $request){
@@ -211,25 +211,25 @@ class PedidoController extends Controller {
         $pesquisa = $_REQUEST['pesquisa_agendamento'];
 
         $agendamento = Pedido::where('data_agendamento',$pesquisa)->paginate(6);
-        return view('salao_views/resultado_pesquisa_agendamento',['agendamento'=>$agendamento]);
+        return view('admin/agendamento/resultado_pesquisa_agendamento',['agendamento'=>$agendamento]);
     }
 
     public function ClientePedidosDetalhesAdmin($id){
         $servico = Servico::orderBy('id_servico')->get();
         $pedido = Pedido::find($id);
-        return view('salao_views/detalhes_pedido_admin',compact('servico','pedido'));
+        return view('admin/agendamento/detalhes_agendamento_admin',compact('servico','pedido'));
     }
 
     public function PedidosPagos(){
         $pedido = Pedido::where('pago',true)->orderBy('data_agendamento')->paginate(6);
         $cliente = User::orderBy('name')->get();
-        return view('salao_views/pedidos_pagos_naopagos',compact('pedido','cliente'));
+        return view('admin/agendamento/listar_pedidos_pagos_nao_pagos',compact('pedido','cliente'));
     }
 
     public function PedidosNaoPagos(){
         $pedido =  Pedido::where('pago',false)->orderBy('data_agendamento')->paginate(6);
         $cliente = User::orderBy('name')->get();
-        return view('salao_views/pedidos_pagos_naopagos',compact('pedido','cliente'));
+        return view('admin/agendamento/listar_pedidos_pagos_nao_pagos',compact('pedido','cliente'));
     }
 
     public function ListarAgendamentos(){
@@ -239,6 +239,6 @@ class PedidoController extends Controller {
         $agendamento = Pedido::where('data_agendamento',$hoje)->paginate(2);
         $cliente = User::orderBy('name')->get();
         $data_de_hoje['hoje'] = $hoje;
-        return view('salao_views/listar_agendamentos',['agendamento'=>$agendamento,'cliente'=>$cliente,'consulta'=>$consulta],$data_de_hoje);
+        return view('admin/agendamento/listar_agendamentos',['agendamento'=>$agendamento,'cliente'=>$cliente,'consulta'=>$consulta],$data_de_hoje);
     }
 }

@@ -20,11 +20,11 @@ class FornecedorController extends Controller{
 
 	public function ListarMarcasFornecedor(){
         $marca = FornecedorMarca::OrderBy('id_marca_fornecedor')->get();
-        return view('salao_views/listar_marcas_fornecedor',compact('marca'));
+        return view('admin/fornecedor/listar_marcas_fornecedor',compact('marca'));
     }
 
     public function FormMarcaFornecedor(){
-        return view('salao_views/cadastro_marca_fornecedor');
+        return view('admin/fornecedor/cadastro_marca_fornecedor');
     }
 
     public function CadastrarMarcaFornecedor(request $request){
@@ -40,7 +40,7 @@ class FornecedorController extends Controller{
 
     public function deleteMarcaFornecedor($id){
         $marca = FornecedorMarca::find($id);
-        return view('salao_views/excluir_marca_fornecedor',compact('marca'));
+        return view('admin/fornecedor/excluir_marca_fornecedor',compact('marca'));
     }
 
      public function deletarMarcaFornecedor($id){
@@ -51,7 +51,7 @@ class FornecedorController extends Controller{
 
     public function atualizarMarcaFornecedor($id){
         $marca = FornecedorMarca::find($id);
-        return view('salao_views/atualizar_marca_fornecedor',compact('marca'));
+        return view('admin/fornecedor/atualizar_marca_fornecedor',compact('marca'));
     }
 
     public function AtualizandoMarcaFornecedor(request $request){
@@ -68,24 +68,24 @@ class FornecedorController extends Controller{
 
     public function fornecedorid($id){
         $fornecedor = Fornecedor::find($id);
-        return view('salao_views/excluir_fornecedor',compact('fornecedor'));
+        return view('admin/fornecedor/excluir_fornecedor',compact('fornecedor'));
     }
 
     public function CadastroFornecedorForm(){
         $fornecedor = FornecedorMarca::orderBy('id_marca_fornecedor')->get();
-        return view('salao_views/cadastro_fornecedor',compact('fornecedor'));
+        return view('admin/fornecedor/cadastro_fornecedor',compact('fornecedor'));
     }
 
     public function ListarFornecedor(){
         $marca = FornecedorMarca::orderBy('id_marca_fornecedor')->get();
         $fornecedores = Fornecedor::orderBy('id_fornecedor')->get();
-        return view('salao_views/listar_fornecedores',compact('fornecedores','marca'));
+        return view('admin/fornecedor/listar_fornecedores',compact('fornecedores','marca'));
     }
 
     public function AtualizarFornecedor($id){
         $marca = FornecedorMarca::orderBy('id_marca_fornecedor')->get();
         $fornecedor = Fornecedor::find($id);
-        return view('salao_views/atualizar_fornecedor',compact('fornecedor','marca'));
+        return view('admin/fornecedor/atualizar_fornecedor',compact('fornecedor','marca'));
     }
 
     public function ExcluirFornecedor($id){

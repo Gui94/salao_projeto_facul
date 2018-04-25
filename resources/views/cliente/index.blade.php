@@ -82,7 +82,7 @@
         <div class="main">
             <!-- start grids_of_3 -->
             <div class="grids_of_3">
-                <div style="display:table; margin:0 auto;">
+                <div>
                     @foreach($servico as $s)
                         <div class="grid1_of_3">
                             <a href="{{route('detalhes',$s->id_servico)}}">

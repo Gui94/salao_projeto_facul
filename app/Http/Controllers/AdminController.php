@@ -37,21 +37,21 @@ use App\Admin;
 class AdminController extends Controller{
 
 	 public function AdminForm(){
-        return view('salao_views/admin_login_form');
+        return view('admin/cliente/admin_form');
     }
 
     public function AdminPainel(){
-        return view('salao_views/admin_painel');
+        return view('admin/cliente/admin_painel');
     }
 
 	public function ListarClientes(){
         $user = User::orderBy('name')->paginate(6);
-        return view('salao_views/listar_clientes',compact('user'));
+        return view('admin/cliente/listar_clientes',compact('user'));
     }
 
     public function AtualizarClienteAdmin($id){
         $cliente = User::find($id);
-        return view('salao_views/atualizar_cliente',compact('cliente'));
+        return view('admin/cliente/atualizar_cliente',compact('cliente'));
     }
 
     public function atualizandoCliente(request $request){
@@ -77,7 +77,7 @@ class AdminController extends Controller{
 
     public function clienteid($id){
         $cliente = User::find($id);
-        return view('salao_views/excluir_cliente',compact('cliente'));
+        return view('admin/cliente/excluir_cliente',compact('cliente'));
 
     }
 
@@ -90,7 +90,7 @@ class AdminController extends Controller{
     public function ClienteAgendamentos($id){
         $cliente = User::find($id);
         $agendamento = Pedido::where('id',$id)->orderBy('data_agendamento')->paginate(6);
-    return view('salao_views/listar_cliente_agendamentos',compact('agendamento'));
+    return view('admin/cliente/listar_cliente_agendamentos',compact('agendamento'));
     }
 
     public function logout_admin(){

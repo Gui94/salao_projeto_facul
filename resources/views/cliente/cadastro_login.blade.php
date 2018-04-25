@@ -15,8 +15,8 @@
     <p class="alert alert-info text-center">{{Session::get('mensagens-sucesso')}}</p>
 @endif
 @if(Auth::guest())
-	@include('salao_views.login_form')
-	@include('salao_views.cadastro_form')
+	@include('cliente.login_form')
+	@include('cliente.cadastro_form')
 @else
 @endif
 @stop

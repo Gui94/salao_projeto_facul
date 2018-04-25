@@ -20,8 +20,10 @@
    <div id="page-inner">
       <div class="row">
            <div class="col-md-12">          
-                <a id="pagos" class="btn btn-info" href="pedidos_pagos_naopagos">Agendamentos não pagos</a>
-                <a id="naopagos" class="btn btn-primary" href="pedidos_pagos">Agendamentos pagos</a>
+                <a  class="btn btn-primary" href="{{route('pedidos.pagos.naopagos')}}">Agendamentos não pagos</a>
+                <a  class="btn btn-primary" href="{{route('pedidos.pagos')}}">Agendamentos pagos</a>
+                <a  class="btn btn-primary" href="{{route('agendamentos.espera')}}">Agendamentos em espera(hoje)</a>
+                <a  class="btn btn-primary" href="{{route('agendamentos.cancelados')}}">Agendamentos cancelados</a>
                 <form action="{{route('pesquisar')}}" method="GET">
                     Pesquisar agendamento pela data:
                     <br/>

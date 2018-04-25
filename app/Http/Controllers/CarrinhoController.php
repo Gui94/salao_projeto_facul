@@ -89,7 +89,7 @@ class CarrinhoController extends Controller {
             return redirect('carrinho')->with('mensagens-sucesso','selecione uma data');
         }else{
           
-        return view('salao_views/finalizar_pedido', $models);
+        return view('cliente/finalizar_pedido', $models);
       }
     }
   }

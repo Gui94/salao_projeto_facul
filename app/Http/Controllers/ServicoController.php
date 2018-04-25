@@ -10,25 +10,30 @@ use App\Servico;
 
 class ServicoController extends Controller{
 
+  private $servico = null;
+
+    function __construct() {
+        
+        $this->servico = new Servico();
+    }
+
 	public function ListarServicos(){
-        $listar = Servico::OrderBy('nome_servico')->get();
-    	return view('salao_views/listar_servicos',compact('listar'));
+        $listar = $this->servico->listar();
+    	return view('cliente/listar_servicos',compact('listar'));
     }
 
     public function ServicoDetalhes($id){
-        $servico =  Servico::find($id);
-        return view('salao_views/detalhes_servico',compact('servico'));
-
+        $servico =  $this->servico->getId($id);
+        return view('cliente/detalhes_servico',compact('servico'));
     }
-
     public function ListarServicoAdmin(){
-        $servico = Servico::orderBy('nome_servico')->get();
-        return view('salao_views/listar_servicos_admin',compact('servico'));
+        $servico = $this->servico->listar();
+        return view('admin/servico/listar_servicos',compact('servico'));
     }
 
     public function AtualizarServico($id){
-        $servico = Servico::find($id);
-        return view('salao_views/atualizar_servico',compact('servico'));
+        $servico = $this->servico->getId($id);
+        return view('admin/servico/atualizar_servico',compact('servico'));
     }
 
     public function AtualizandoServico(request $request){
@@ -82,12 +87,12 @@ class ServicoController extends Controller{
     }
 
     public function servicoid($id){
-        $servico = Servico::find($id);
-        return view('salao_views/excluir_servico',compact('servico'));
+        $servico = $this->servico->getId($id);
+        return view('admin/servico/excluir_servico',compact('servico'));
     }
 
     public function CadastroServico(){
-        return view('salao_views/cadastro_servico');
+        return view('admin/servico/cadastrar_servico');
     }
 
 

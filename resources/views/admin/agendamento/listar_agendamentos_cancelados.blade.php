@@ -2,30 +2,29 @@
 @section('cabecalho_admin')
 <style>
 #sucesso{
-        display:inline;
+    display:inline;
 }
-
 #page-inner{
-          min-width:1030px;
-        }
+    min-width:1030px;
+}
 .alert-success{
-      width:290px;
-        height:45px;
-        text-indent:65px;
-        position:relative;
-        left:550px;
-        text-align:justify;
+    width:290px;
+    height:45px;
+    text-indent:65px;
+    position:relative;
+    left:550px;
+    text-align:justify;
 }
 .mensagem_sucess{
-        width:290px;
-        height:45px;
+    width:290px;
+    height:45px;
 }
 .footer{
-  min-width:1050px;
+    min-width:1050px;
 }
 select{
-  width:900px;
-  font-size:20px;
+    width:900px;
+    font-size:20px;
 }
 </style>
         <div id="page-wrapper" >

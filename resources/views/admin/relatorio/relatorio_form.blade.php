@@ -50,7 +50,7 @@
                 </div>
                 <br/>
                 <br/>
-                <a class="btn btn-primary" href="{{route('lucro.do.dia')}}">Faturamento do dia</a>
+                <a class="btn btn-primary" href="{{route('faturamento')}}">Faturamento do dia</a>
                 <br/>
                 <br/>
                 <form action="{{route('pesquisar.data')}}" method="get">

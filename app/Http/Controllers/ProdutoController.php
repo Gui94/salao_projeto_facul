@@ -18,9 +18,9 @@ use DB;
 class ProdutoController extends Controller{
 
 	  public function ListarProduto(){
-      $produto = Produto::orderBy('id_produto')->get();
+      $produto    = Produto::orderBy('id_produto')->get();
       $fornecedor = Fornecedor::OrderBy('id_fornecedor')->get();
-    return view('salao_views/listar_estoque',compact('produto','fornecedor'));
+    return view('admin/produto/listar_produtos',compact('produto','fornecedor'));
     }
 
     public function ExcluirProduto($id){
@@ -31,13 +31,13 @@ class ProdutoController extends Controller{
 
     public function produtoid($id){
       $produto = Produto::find($id);
-    return view('salao_views/excluir_produto',compact('produto'));
+    return view('admin/produto/excluir_produto',compact('produto'));
     }
 
     public function AtualizarProduto($id){
       $fornecedor = DB::table('fornecedor')->get();
       $produto = Produto::find($id);
-    return view('salao_views/atualizar_produto',compact('fornecedor','produto','marca'));
+    return view('admin/produto/atualizar_produto',compact('fornecedor','produto','marca'));
     }
 
     public function AtualizarProdutoDados(request $request){
@@ -70,12 +70,12 @@ class ProdutoController extends Controller{
             return redirect('listar_produto');
         }
       $fornecedor = Fornecedor::orderBy('id_fornecedor')->get();
-      return view('salao_views/cadastro_produto',compact('fornecedor'));
+      return view('admin/produto/cadastrar_produto',compact('fornecedor'));
     }
 
     public function FornecedorDetalhes($id){
       $fornecedor = Fornecedor::find($id);
       $marca = FornecedorMarca::orderBy('id_marca_fornecedor')->get();
-      return view('salao_views/detalhes_fornecedor',compact('marca','fornecedor'));
+      return view('admin/produto/fornecedor_detalhes',compact('marca','fornecedor'));
     }
 }

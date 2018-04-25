@@ -42,7 +42,6 @@ h1{
 </style>
 <br/>
 {!!Form::open(array('route' => 'gerar.pedido','method'=>'post'))!!}
-<!--<input type="hidden" name="horario" value="{{$horario}}"> -->
 	<div class="main_bg">
 		<div class="wrap">	
 			<div class="main">
@@ -54,10 +53,10 @@ h1{
 				<input type="submit" class="btn btn-info btn-block"   value="Sim">
 				<br/>
 				<a  class="btn btn-primary btn-block" href="{{route('carrinho')}}">Não</a>
-			{{ Form::close() }}
 			</div>
 		</div>
 	</div>
+{{ Form::close() }}
 </div>
 <div class="footer_bg">
 	<div class="wrap">	

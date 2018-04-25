@@ -78,7 +78,7 @@ p{
 	<div class="wrap">	
 		<div class="main">
 			<!-- start grids_of_3 -->
-			<div class="grids_of_3"><div style="display:table; margin:0 auto;">
+			<div class="grids_of_3"><div>
 				@foreach($listar as $l)<!-- PRIMEIRO LISTA OS SERVIÇOS -->
 					<div class="grid1_of_3">
 						@if($l->promocao == true)<!-- VERIFICO SE ESTA EM PROMOCÃO,SE SIM,CARREGA O BLOCO DE CODIGO ABAIXO -->

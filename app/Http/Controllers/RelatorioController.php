@@ -15,7 +15,7 @@ use DB;
 class RelatorioController extends Controller{
 
 	public function FinanceiroForm(){
-        return view('salao_views/financeiro_form');
+        return view('admin/relatorio/relatorio_form');
     }
 
     public function CalcularLucro(request $request){
@@ -34,7 +34,7 @@ class RelatorioController extends Controller{
         ->where('data_agendamento','<=',$data2)->where('pago','=',TRUE)->orderBy('data_agendamento')->paginate(6);
 
         $cliente = User::orderBy('name')->get();
-            return view('salao_views/resultado_lucro',['consulta'=>$consulta,'cliente'=>$cliente,'agendamento'=>$agendamento]);
+            return view('admin/relatorio/resultado_pesquisa_lucro',['consulta'=>$consulta,'cliente'=>$cliente,'agendamento'=>$agendamento]);
 
     }
 
@@ -47,7 +47,7 @@ class RelatorioController extends Controller{
         $agendamento = Pedido::where('data_agendamento',$formato_data)->where('pago',TRUE)->get();
         $cliente = User::orderBy('name')->get();
 
-        return view('salao_views/lucro_do_dia',compact('consulta','agendamento','cliente'));
+        return view('admin/relatorio/faturamente_diario',compact('consulta','agendamento','cliente'));
     }
 
 }

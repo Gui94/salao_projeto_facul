@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-lg-12 ">
                 <div class="alert alert-info text-center">
-                    <strong>Bem vinda: {{\Session::get('nome')}}  :)</strong>.
+                    <strong>Bem vindo: {{\Session::get('nome')}}  :)</strong>.
                 </div>
             </div>
         </div>

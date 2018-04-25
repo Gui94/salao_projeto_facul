@@ -101,17 +101,9 @@ Route::group(['middleware' => ['web']], function (){
         'as'=>'detalhes',
         'uses'=>'ServicoController@ServicoDetalhes'
     ]);
-    Route::post('pedido/{id}',[
-        'as'=>'pedido',
-        'uses'=>'IndexController@AddCarrinho'
-    ]);
     Route::get('carrinho',[
         'as'=>'carrinho',
         'uses'=>'CarrinhoController@getListar'
-    ]);
-    Route::get('realizar_pedido',[
-        'as'=>'realizar.pedido',
-        'uses'=>'IndexController@GerarPedido'
     ]);
     Route::get('cadastro_login',[
         'as'=>'cadastro.login',
@@ -186,41 +178,13 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
         'as'=>'pesquisar.data',
         'uses'=>'RelatorioController@CalcularLucro'
     ]);
-    Route::get('lucro_do_dia',[
-        'as'=>'lucro.do.dia',
+    Route::get('faturamento_diario',[
+        'as'=>'faturamento',
         'uses'=>'RelatorioController@CalculoLucroDoDia'
     ]);
     Route::get('pesquisar',[
         'as'=>'pesquisar',
         'uses'=>'PedidoController@PesquisarDataAgendamento'
-    ]);
-    Route::get('cadastro_marca_produto',[
-        'as'=>'cadastro.marca.produto',
-        'uses'=>'IndexController@FormMarcaProduto'
-    ]);
-    Route::get('listar_marca_produto',[
-        'as'=>'listar.marca.produto',
-        'uses'=>'IndexController@ListarMarcasProduto'
-    ]);
-    Route::post('cadastrando_marca_produto',[
-        'as'=>'cadastrando.marca.produto',
-        'uses'=>'IndexController@CadastrarMarcaProduto'
-    ]);
-    Route::get('excluir_marca_produto/{id}',[
-        'as'=>'excluir.marca.produto',
-        'uses'=>'IndexController@deleteMarcaProduto'
-    ]);
-    Route::get('deletar_marca_produto/{id}',[
-        'as'=>'deletar.marca.produto',
-        'uses'=>'IndexController@deletarMarcaProduto'
-    ]);
-    Route::get('atualizar_marca_produto/{id}',[
-        'as'=>'atualizar.marca.produto',
-        'uses'=>'IndexController@atualizarMarcaProduto'
-    ]);
-    Route::post('atualizando_marca_produto',[
-        'as'=>'atualizando.marca.produto',
-        'uses'=>'IndexController@AtualizandoMarcaProduto'
     ]);
     Route::get('cadastro_marca_fornecedor',[
         'as'=>'cadastro.marca.fornecedor.form',
@@ -284,7 +248,7 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
         'uses'=>'PedidoController@PedidosPagos'
     ]);
     Route::get('pedidos_pagos_naopagos',[
-        'as'=>'pedido.pagos.naopagos',
+        'as'=>'pedidos.pagos.naopagos',
         'uses'=>'PedidoController@PedidosNaoPagos'
     ]);
 	Route::any('cadastro_produto',[
@@ -326,10 +290,6 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
 	Route::post('atualizando_cliente_admin',[
 		'as'=>'atualizando.cliente.admin',
 		'uses'=>'AdminController@atualizandoCliente'
-	]);
-	Route::get('cliente_pedidos_admin',[
-		'as'=>'cliente.pedidos.admin',
-		'uses'=>'IndexController@ClientePedidosAdmin'
 	]);
 	Route::get('detalhes/pedidos/admin/{id}',[
 		'as'=>'detalhes.pedidos.admin',
