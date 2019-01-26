@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-
+	
     $(".fotos").cycle({
     fx:    'zoom', 
     sync:  true, 
@@ -8,6 +8,8 @@ $(document).ready(function(){
 
 
     });
+
+
 
 
 
