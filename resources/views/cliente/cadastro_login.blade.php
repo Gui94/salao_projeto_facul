@@ -15,8 +15,11 @@
     <p class="alert alert-info text-center">{{Session::get('mensagens-sucesso')}}</p>
 @endif
 @if(Auth::guest())
+<div class="container">
 	@include('cliente.login_form')
 	@include('cliente.cadastro_form')
+</div>
 @else
 @endif
+@include('layouts.rodape')
 @stop

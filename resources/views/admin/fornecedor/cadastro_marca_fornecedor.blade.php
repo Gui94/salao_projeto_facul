@@ -22,7 +22,7 @@
                 </div>
                 @endif
                 <form action="{{route('cadastro.marca.fornecedor')}}" method="post">
-                	Marca do produto:<input  value="{{old('marca_fornecedor')}}" class="form-control" type="text" name="marca_fornecedor"><br/><br/>
+                	Marca do produto:<input  value="{{old('marca_fornecedor')}}" class="form-control" type="text" name="nome"><br/><br/>
                 	<input type="submit" class="btn btn-primary btn-lg btn-block" value="cadastrar">
                 </form>
             </div>

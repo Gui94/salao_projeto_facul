@@ -2,12 +2,10 @@
 <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
 <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-<link href="{{ asset('js/custom.js') }}" rel="stylesheet">
-<script type='text/javascript' src="{{ asset('js/bootstrap.js') }}"></script>
-<script type='text/javascript' src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script type='text/javascript' src="{{ asset('js/jquery-ui.js') }}"></script>
-<script type='text/javascript' src="{{ asset('js/jquery.js') }}"></script>
 <link href="{{ asset('css/jquery-ui.css') }}" rel="stylesheet">
+<script type='text/javascript' src="{{ asset('js/jquery.js') }}"></script>
+<script type='text/javascript' src="{{ asset('js/bootstrap.js') }}"></script>
+<script type='text/javascript' src="{{asset('js/admin.js')}}"></script>
 <div id="wrapper">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="adjust-nav">

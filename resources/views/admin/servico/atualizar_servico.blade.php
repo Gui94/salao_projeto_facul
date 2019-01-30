@@ -40,7 +40,12 @@
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12">
-                <form action="{{route('atualizando.servico')}}" method="POST">
+                <div class="mensagem">
+                  @if(Session::has('mensagem_sucesso'))
+                     <p class="alert alert-info text-center alert_sumir">{{ Session::get('mensagem_sucesso') }}</p>
+                  @endif
+                </div>
+                <form action="" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id_servico" value="{{$servico->id_servico}}">
                         <p>Nome do serviço:</p>
                     <input class="form-control" name="nome_servico" value="{{$servico->nome_servico}}" type="text">
@@ -52,18 +57,27 @@
                     <input name="descricao" class="form-control" value="{{$servico->descricao}}"  type="text">
                         <p class="mensagem_error">{{$errors->first('descricao',':message')}}</p>
                     <br/>
-                    <label class="btn btn-primary btn-file">
-                        <p>Imagem:</p>
-                        <input type="file" style="display: none;" name="imagem_nome">
-                    </label>
+                    @if($servico->imagem != '')
+                        <img style="height:100px; width:100px;" src="{{asset('imagens_servicos/'.$servico->imagem)}}">
+                        <br/>
+                        <br/>
+                        <input type="hidden" name="imagem" value="{{$servico->imagem}}">
+                        <a class="btn btn-primary" href="{{route('deletar.imagem',$servico->id_servico)}}">Apagar Imagem</a>
+                    @else
+                        <label class="btn btn-primary btn-file">
+                            <p>Imagem:</p>
+                            <input type="file" style="display: none;" name="imagem">   
+                        </label>
                         <p class="mensagem_error">{{$errors->first('imagem',':message')}}</p>
-                    <br/>
+                    @endif
+                        <br/>
+                        <br/>
                         <p>Preço Desconto:</p>
                         <input class="form-control" name="preco_desconto" value="{{$servico->preco_desconto}}" type="text">
                         <p class="mensagem_error">{{$errors->first('preco_desconto',':message')}}</p><br/>
                         Servico em promoção?<br/>
-                        <p>Sim<input type="radio" name="promocao" value="true" /></p>
-                        <p>Não<input type="radio" name="promocao" value="false" /></p>
+                        <p>Sim<input type="radio" name="promocao" value="true" {{ $servico->promocao ==  true ? 'checked' : '' }} /></p>
+                        <p>Não<input type="radio" name="promocao" value="false" {{ $servico->promocao == false ? 'checked' : '' }}/></p>
                         <p class="mensagem_error">{{$errors->first('promocao',':message')}}</p>
                         <input type="submit" class="btn btn-primary btn-lg btn-block" value="atualizar">
                 </form>

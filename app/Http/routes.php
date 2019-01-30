@@ -20,7 +20,8 @@ print_r($vinho);
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect('index');
 });
 
 /*
@@ -74,7 +75,7 @@ Route::group(['middleware' => ['web']], function (){
         'uses'=>'ProdutoController@produtoid'
     ]);
     Route::get('fornecedor_id/{id}',[
-        'as'=>'fornecedor',
+        'as'=>'fornecedor.id',
         'uses'=>'FornecedorController@fornecedorid'
     ]);
     Route::get('cliente_id/{id}',[
@@ -207,7 +208,7 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
         'as'=>'deletar.marca.fornecedor',
         'uses'=>'FornecedorController@deletarMarcaFornecedor'
     ]);
-    Route::get('atualizar_marca_fornecedor/{id}',[
+    Route::any('atualizar_marca_fornecedor/{id}',[
         'as'=>'atualizar.marca.fornecedor',
         'uses'=>'FornecedorController@atualizarMarcaFornecedor'
     ]);
@@ -235,7 +236,7 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
         'as'=>'cadastro.fornecedor',
         'uses'=>'FornecedorController@CadastroFornecedorForm'
     ]);
-    Route::get('cadastro_servico',[
+    Route::any('cadastro_servico',[
         'as'=>'cadastro.servico',
         'uses'=>'ServicoController@CadastroServico'
     ]);
@@ -255,7 +256,7 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
 		'as'=>'cadastro.produto',
 		'uses'=>'ProdutoController@CadastroProduto'
 	]);
-	Route::get('atualizar_produto/{id}',[
+	Route::any('atualizar_produto/{id}',[
 		'as'=>'atualizar.produto',
 		'uses'=>'ProdutoController@AtualizarProduto'
 	]);
@@ -263,7 +264,7 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
 		'as'=>'listar.fornecedor',
 		'uses'=>'FornecedorController@ListarFornecedor'
 	]);
-	Route::get('atualizar_fornecedor/{id}',[
+	Route::any('atualizar_fornecedor/{id}',[
 		'as'=>'atualizar.fornecedor',
 		'uses'=>'FornecedorController@AtualizarFornecedor'
 	]);
@@ -271,18 +272,18 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
 		'as'=>'listar.servicos.admin',
 		'uses'=>'ServicoController@ListarServicoAdmin'
 	]);
-	Route::get('atualizar_servico/{id}',[
+	Route::any('atualizar_servico/{id}',[
 		'as'=>'atualizar.servico',
 		'uses'=>'ServicoController@AtualizarServico'
-	]);
-	Route::post('atualizandoservico',[
-		'as'=>'atualizando.servico',
-		'uses'=>'ServicoController@AtualizandoServico'
 	]);
 	Route::get('deletar_servico/{id}',[
 		'as'=>'deletar.servico',
 		'uses'=>'ServicoController@DeletarServico'
 	]);
+    Route::get('deletar_imagem/{id}',[
+        'as'=>'deletar.imagem',
+        'uses'=>'ServicoController@DeletarImagem'
+    ]);
 	Route::get('atualizar_cliente_admin/{id}',[
 		'as'=>'atualizar.cliente.admin',
 		'uses'=>'AdminController@AtualizarClienteAdmin'
@@ -299,8 +300,8 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
 		'as'=>'cadastrar.fornecedor',
 		'uses'=>'FornecedorController@CadastrarFornecedor'
 	]);
-	Route::post('atualizar_fornecedor',[
-		'as'=>'atualizar.fornecedor',
+	Route::post('atualizar_fornecedor_dados',[
+		'as'=>'atualizar.fornecedor.dados',
 		'uses'=>'FornecedorController@AtualizarFornecedorDados'
 	]);
 	Route::get('excluir_fornecedor/{id}',[

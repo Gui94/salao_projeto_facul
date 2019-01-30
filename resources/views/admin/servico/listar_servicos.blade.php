@@ -15,11 +15,9 @@
         <br/>
         {!! csrf_field() !!}
         <div class="mensagem">
-          @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-            @if(Session::has('alert-' . $msg))
-            <p class="alert alert-info text-center">{{ Session::get('alert-'.$msg) }}</p>
+            @if(Session::has('mensagem_sucesso'))
+              <p class="alert alert-info text-center alert_sumir">{{ Session::get('mensagem_sucesso') }}</p>
             @endif
-          @endforeach
         </div>
         <h2 class="text-center">Lista dos serviços cadastrados</h2><br/>
         <table class=" table table-bordered">
@@ -32,7 +30,7 @@
         	</thead>
         	@foreach($servico as $s)
         	<tbody>
-        		<td class="coluna"><img height="45px" src="{{route('imagem.file',$s->imagem)}}" alt="{{$s->imagem}}"><td>
+        		<td class="coluna"><img height="45px" src="{{asset('imagens_servicos/'.$s->imagem)}}" alt="{{$s->imagem}}"><td>
         		<td class="coluna">{{$s->nome_servico}}<td>
         		<td class="coluna">{{$s->preco}}<td>
         		<td class="coluna"><a class="btn btn-primary" href="{{route('atualizar.servico',$s->id_servico)}}">Atualizar</a><td>

@@ -19,7 +19,7 @@
                                     <div class="caption">
                                         <h4>Nome:{{$fornecedor->nome_fornecedor}}</h4>
                                         <br/>
-                                        <h4>Marca:{{$fornecedor->marcas->nome}}</h4>
+                                        <h4>Marca:{{$fornecedor->nome}}</h4>
                                         <br/>
                                         <h4>Telefone:{{preg_replace('~.*(\d{2})[^\d]{0,7}(\d{4})[^\d]{0,7}(\d{4}).*~', '$1 $2 $3',$fornecedor->telefone)}}</h4>
                                     </div>

@@ -12,6 +12,9 @@
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12">
+            	@if(Session::has('mensagem_sucesso'))
+             		<p class="alert alert-info text-center alert_sumir">{{ Session::get('mensagem_sucesso') }}</p>
+         		@endif
 				<br/>
 				<a class="btn btn-info" href="cadastro_marca_fornecedor">voltar</a>
 				<br/>

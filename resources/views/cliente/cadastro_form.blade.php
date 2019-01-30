@@ -19,7 +19,7 @@ input{
     font-family:arial;
 }
 </style>
-<div class="col-md-4 col-md-offset-1">
+<div style="margin-bottom:20px;" class="col-md-6 col-md-offset-2">
     <div class="panel panel-info">
         <div class="panel-heading">Preencha os formulários para cadastrar</div>
         <div class="panel-body">
@@ -60,7 +60,7 @@ input{
                 </div>
                 <div class="form-group{{ $errors->has('senha') ? ' has-error' : '' }}">
                     <label class="col-md-4 control-label">Senha</label>
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <input type="password" class="form-control" name="senha">
                         @if ($errors->has('senha'))
                             <span class="help-block">

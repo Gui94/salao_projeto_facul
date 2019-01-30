@@ -92,7 +92,7 @@ p{
 							@else<!-- SE NÃO,CARREGA O BLOCO DE CODIGO ABAIXO-->
 						<div class="price">
 							<a href="{{route('detalhes',$l->id_servico)}}">
-							<img class="img_servico_promocao" src="{{route('imagem.file',$l->imagem)}}" alt="{{$l->imagem}}">
+							<img class="img_servico_promocao" src="{{asset('imagens_servicos/'.$l->imagem)}}" alt="{{$l->imagem}}">
 							<h3>{{$l->nome_servico}}</h3>
 							<h4>Preço:<span>R${{$l->preco}}</span></h4>
 						</div>
@@ -108,30 +108,5 @@ p{
 		</div>
 	</div>
 </div>
-<div class="footer_bg">
-	<div class="wrap">	
-		<div class="footer">
-			<!-- start grids_of_4 -->	
-			<div class="grids_of_4">
-				<center><h1   style=" display: inline; color:white; font-size:35px;">Anna monteiro</h1>
-				<h1 style="display: inline; color:white; font-size:35px;">Beleza Estética e Moda Telefone:(42)9837-4046</h1></center>
-			</div>
-		</div>
-		<div class="clear"></div>
-	</div>
-</div>	
-<!-- start footer -->
-<div class="footer_bg1">
-	<div class="wrap">
-		<div class="footer">
-		 	<a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-			<!--end scroll_top_btn -->
-			<div class="copy">
-				<p class="link">&copy;  All rights reserved | Template by&nbsp;&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></p>
-				<p>Editado por Guilherme Araujo e Adriano Kapp</p>
-			</div>
-			<div class="clear"></div>
-		</div>
-	</div>
-</div>
+@include('layouts.rodape')
 @stop

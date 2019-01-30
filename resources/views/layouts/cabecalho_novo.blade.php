@@ -59,11 +59,11 @@ hr {
 <hr></hr>
 	<div class="header">
 		<div class="logo">
-			<img width="350px" height="290px" src="http://localhost/laravel_5.2_base/laravel-base-aulas-master/public/imagens/logo_novo_atualizado.jpg" alt=""/>
+			<img width="350px" height="290px" src="{{asset('imagens/logo_novo_atualizado.jpg')}}" alt=""/>
 		</div>
 				<div class="h_icon">
 		<ul class="icon1">
-			<img width="350px" height="250px" src="http://localhost/laravel_5.2_base/laravel-base-aulas-master/public/imagens/logo_novo_telefone.jpg" alt=""/>
+			<img width="350px" height="250px" src="{{asset('imagens/logo_novo_telefone.jpg')}}" alt=""/>
 		</ul>
 		</div>
 		<div class="clear"></div>

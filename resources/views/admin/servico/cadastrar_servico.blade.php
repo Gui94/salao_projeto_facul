@@ -16,33 +16,31 @@
               <div class="col-md-12">
                 <br/>
                 <div class="mensagem">
-                  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-                    @if(Session::has('alert-' . $msg))
-                    <p class="alert alert-info">{{ Session::get('alert-'.$msg) }}</p>
-                    @endif
-                  @endforeach
+                  @if(Session::has('mensagem_sucesso'))
+                    <p class="alert alert-info">{{ Session::get('mensagem_sucesso') }}</p>
+                  @endif
                 </div>
                 <h2 class="text-center">Cadastro de novos serviços</h2><br/>   
                 <a class="btn btn-primary" href="listar_servicos_admin">Listar Serviços cadastrados</a><br/><br/>
                 <div id="forms">
-                    {!! Form::open(array('route' =>'cadastrar.servico'))!!}
-                      <p class="mensagem_error">{{$errors->first('nome_servico',':message')}}</p>
-                        <p>Nome do serviço:</p><input class="form-control" value="{{old('nome_servico')}}"  type="text" name="nome_servico">
-                      <p class="mensagem_error">{{$errors->first('preco',':message')}}</p>
-                        <p>Preço:</p><input class="form-control"  type="text" value="{{old('preco')}}" name="preco">
-                      <p class="mensagem_error">{{$errors->first('descricao',':message')}}</p>
-                        <p>Descrição:</p><input class="form-control" type="text" value="{{old('descricao')}}" name="descricao"><br/>
-                      <p class="mensagem_error">{{$errors->first('imagem',':message')}}</p>
-                        <label class="btn btn-primary btn-file">
-                        <p>Imagem:</p><input type="file"  style="display: none;" name="imagem">
-                        </label><br/>
-                      <p class="mensagem_error">{{$errors->first('preco_desconto',':message')}}</p>
-                        <p>Preço Desconto:</p><input class="form-control" type="text"  value="0" name="preco_desconto"><br/>
-                      <p class="mensagem_error">{{$errors->first('promocao',':message')}}</p>Servico em promoção?<br/>
-                        <p>Sim<input type="radio" name="promocao" value="true" /></p>
-                      <p>Não<input type="radio" name="promocao" value="false" /></p>
-                      <br/>
-                      <input type="submit" class="btn btn-primary btn-lg btn-block" value="cadastrar">
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        <p class="mensagem_error">{{$errors->first('nome_servico',':message')}}</p>
+                          <p>Nome do serviço:</p><input class="form-control" value="{{old('nome_servico')}}"  type="text" name="nome_servico">
+                        <p class="mensagem_error">{{$errors->first('preco',':message')}}</p>
+                          <p>Preço:</p><input class="form-control"  type="text" value="{{old('preco')}}" name="preco">
+                        <p class="mensagem_error">{{$errors->first('descricao',':message')}}</p>
+                          <p>Descrição:</p><input class="form-control" type="text" value="{{old('descricao')}}" name="descricao"><br/>
+                        <p class="mensagem_error">{{$errors->first('imagem',':message')}}</p>
+                          <label class="btn btn-primary btn-file">
+                          <p>Imagem:</p><input type="file"  style="display: none;" name="imagem">
+                          </label><br/>
+                        <p class="mensagem_error">{{$errors->first('preco_desconto',':message')}}</p>
+                          <p>Preço Desconto:</p><input class="form-control" type="text"  value="0" name="preco_desconto"><br/>
+                        <p class="mensagem_error">{{$errors->first('promocao',':message')}}</p>Servico em promoção?<br/>
+                          <p>Sim<input type="radio" name="promocao" value="true" /></p>
+                        <p>Não<input type="radio" name="promocao" value="false" /></p>
+                        <br/>
+                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="cadastrar">
                     </form>
                 </div>
               </div>

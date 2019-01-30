@@ -51,8 +51,7 @@ h2{
                     <br/>   
                     <h2>Atualizar suas informações cadastrais</h2>
                     <form action="{{route('atualizando.cliente.dados')}}" method="post">
-                        <input type="hidden" value="{{$cliente->id}}" name="id">
-                        @if($errors->has())     
+                        <input type="hidden" value="{{$cliente->id}}" name="id">    
                             <br/>
                             <p class="mensagem_error">{{$errors->first('name',':message')}}</p>
                             <p class="coluna">Nome:<input name="name" type="text"value="{{Session::get('nome_cliente')}}"></p>
@@ -71,37 +70,11 @@ h2{
                             <br/>
                             <br/>
                             <input type="submit" value="atualizar informaçòes" class="btn btn-primary btn-lg" id="detalhes">
-                        @endif
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="footer_bg">
-    <div class="wrap">  
-        <div class="footer">
-            <!-- start grids_of_4 -->   
-            <div class="grids_of_4">
-                <center><h1   style=" display: inline; color:white; font-size:35px;">Anna monteiro</h1>
-                <h1   style="display: inline; color:white; font-size:35px;">Beleza Estética e Moda Telefone:(42)9837-4046</h1></center>
-            </div>
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<!-- start footer -->
-<div class="footer_bg1">
-    <div class="wrap">
-        <div class="footer">
-             <a href="" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-            <!--end scroll_top_btn -->
-            <div class="copy">
-                <p class="link">&copy;  All rights reserved | Template by&nbsp;&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></p>
-                <p>Editado por Guilherme Araujo e Adriano Kapp</p>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-</div>
+@include('layouts.rodape')
 @stop

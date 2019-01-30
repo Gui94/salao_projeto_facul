@@ -56,15 +56,6 @@
     border:1px solid white;
     display:inline;
 }
-.mensagem{
-    width:250px;
-    height:310px;
-    background-color:green;
-    border:1px solid white;
-    display:inline;
-    color:silver;
-    font-size:25px;
-}
 #page-inner{
     min-width:1030px;
 }
@@ -76,14 +67,9 @@
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12"><br/>
-				<div class="mensagem">
-				    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-				      @if(Session::has('alert-' . $msg))
-
-				      <p class="alert alert-info">{{ Session::get('alert-'.$msg) }}</p>
-				      @endif
-				    @endforeach
-  				</div>
+			     @if(Session::has('mensagem_sucesso'))
+	     			<p class="alert alert-info text-center alert_sumir">{{ Session::get('mensagem_sucesso') }}</p>
+	 			 @endif
   				<h2 class="text-center">Lista de fornecedores Cadastrados</h2><br/>
 				<table class="table table-bordered">
 					<thead>
@@ -95,20 +81,16 @@
 							<td>Excluir</td>
 						</tr>
 					</thead>
-					@foreach($fornecedores as $f)
-					@foreach($marca as $m)
-					@if($f->id_marca_fornecedor == $m->id_marca_fornecedor)
+					@foreach($fornecedor as $f)
 					<tbody>
 						<tr>
 							<td>{{$f->nome_fornecedor}}</td>
-							<td>{{$m->nome}}</td>
+							<td>{{$f->nome}}</td>
 							<td>{{$f->telefone}}</td>
 							<td><a class="btn btn-primary" href="{{route('atualizar.fornecedor',$f->id_fornecedor)}}">Atualizar</a></td>
-							<td><a class="btn btn-info" href="{{route('fornecedor',$f->id_fornecedor)}}">Excluir</a></td>
+							<td><a class="btn btn-info" href="{{route('fornecedor.id',$f->id_fornecedor)}}">Excluir</a></td>
 						</tr>
 					</tbody>
-					@endif
-					@endforeach
 					@endforeach
 				</table>
 			</div>

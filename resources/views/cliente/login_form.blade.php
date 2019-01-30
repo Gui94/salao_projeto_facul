@@ -17,7 +17,7 @@
     border-color: #009999;
 }
 </style>
-<div class="col-md-4 col-md-offset-1">
+<div class="col-md-4">
     <div class="panel panel-info">
         <div class="panel-heading">Digite seu email e senha para logar na sua conta</div>
         <div class="panel-body">

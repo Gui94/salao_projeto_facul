@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12"><br/>     
 				@if(Session::has('mensagem_sucesso'))
-					<p class="alert alert-info text-center" role="alert">{{Session::get('mensagem_sucesso')}}</p>
+					<p class="alert alert-info text-center alert_sumir" role="alert">{{Session::get('mensagem_sucesso')}}</p>
 				@endif
 				<br/>
 				<h2 class="text-center">Lista de clientes cadastrados</h2><br/>

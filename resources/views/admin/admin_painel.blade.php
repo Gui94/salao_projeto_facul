@@ -25,13 +25,15 @@
         </div>
         <!-- /. ROW  -->
         <hr/>
+        @if(Session::has('admin_login'))
         <div class="row">
             <div class="col-lg-12 ">
-                <div class="alert alert-info text-center">
-                    <strong>Bem vindo: {{\Session::get('nome')}}  :)</strong>.
+                <div class="alert alert-info text-center alert_sumir">
+                    <strong>{{\Session::get('admin_login')}}  {{\Session::get('nome')}}</strong>
                 </div>
             </div>
         </div>
+        @endif
         <!-- /. ROW  -->
         <a href="listar_agendamentos" >
             <div class="row text-center pad-top">

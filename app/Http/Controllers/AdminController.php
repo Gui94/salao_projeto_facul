@@ -37,11 +37,11 @@ use App\Admin;
 class AdminController extends Controller{
 
 	 public function AdminForm(){
-        return view('admin/cliente/admin_form');
+        return view('admin/admin_form');
     }
 
     public function AdminPainel(){
-        return view('admin/cliente/admin_painel');
+        return view('admin/admin_painel');
     }
 
 	public function ListarClientes(){
@@ -120,7 +120,7 @@ class AdminController extends Controller{
     	\Session::forget('next-url');
     	return redirect($url);
     }
-    return redirect('admin_painel');
+    return redirect('admin_painel')->with('admin_login','bem vindo');
     }
 
 }

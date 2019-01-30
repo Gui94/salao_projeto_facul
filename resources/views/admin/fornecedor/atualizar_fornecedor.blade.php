@@ -34,21 +34,20 @@
                 <br/>
                 <a class="btn btn-primary" href="{{route('listar.fornecedor')}}">Voltar</a>
                 <br/>
-                    <form action="{{route('atualizar.fornecedor')}}" method="POST">
+                    <form action="" method="POST">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                        <input type="hidden" name="id_fornecedor" value="{{$fornecedor['id_fornecedor']}}">
-                        <p>Nome do fornecedor:</p><input name="nome_fornecedor" class="form-control" type="text" value="{{$fornecedor['nome_fornecedor']}}">
+                        <p>Nome do fornecedor:</p><input name="nome_fornecedor" class="form-control" type="text" value="{{$fornecedor->nome_fornecedor}}">
                         <p class="mensagem_error">{{$errors->first('nome_fornecedor',':message')}}</p>
                         <br/>
                         Marca de fornecedores:
-                        <select name="marca">
+                        <select name="id_marca_fornecedor">
                             @foreach($marca as $f)
                             <option  value="{{$f->id_marca_fornecedor}}">{{$f->nome}}</option>
                             @endforeach
                         </select>
                         <p class="mensagem_error">{{$errors->first('marca',':message')}}</p>
                         <br/>
-                        <p>Telefone:</p><input type="text" name="telefone" class="form-control"  value="{{$fornecedor['telefone']}}">
+                        <p>Telefone:</p><input type="text" name="telefone" class="form-control"  value="{{$fornecedor->telefone}}">
                         <p class="mensagem_error">{{$errors->first('telefone',':message')}}</p>
                         <br/>
                         <input type="submit" class="btn btn-primary btn-lg btn-block" value="atualizar">
