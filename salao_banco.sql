@@ -35,7 +35,7 @@ CREATE TABLE produto (
 );
 
 
-CREATE TABLE uses (
+CREATE TABLE users (
                 id SERIAL NOT NULL,
                 name VARCHAR(255) NOT NULL,
                 sobrenome VARCHAR(255) NOT NULL,
