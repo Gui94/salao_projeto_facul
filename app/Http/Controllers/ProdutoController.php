@@ -3,15 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-
 use App\Produto;
-
 use App\Fornecedor;
-
 use App\FornecedorMarca;
-
+use Illuminate\Support\Facades\Response;
 use DB;
 
 
@@ -81,6 +77,7 @@ class ProdutoController extends Controller{
 
     public function FornecedorDetalhes($id){
       $fornecedor = $this->fornecedor->FornecedorDetalhes($id);
-      return view('admin/produto/fornecedor_detalhes',compact('fornecedor'));
+      return Response::json($fornecedor);
+      //return view('admin/produto/fornecedor_detalhes',compact('fornecedor'));      
     }
 }

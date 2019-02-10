@@ -72,7 +72,7 @@ return [
             'port' => '5432',
             'database' => 'salao_beleza',
             'username' => 'postgres',
-            'password' => 'abc123',
+            'password' => '123456',
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',

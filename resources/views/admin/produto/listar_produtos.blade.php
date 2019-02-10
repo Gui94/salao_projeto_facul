@@ -40,11 +40,31 @@
               <td>R$:{{$p->preco}}</td>
               <td><a class="btn btn-primary" href="{{url('atualizar_produto',$p->id_produto)}}">Atualizar informações</a></td>
               <td><a class="btn btn-primary" href="{{route('produto',$p->id_produto)}}">Excluir Produto</a></td>
-              <td><a class="btn btn-primary" href="{{route('detalhes.fornecedor',$p->id_fornecedor)}}">Vizualizar informações</a></td>
+              <td>
+                <button type="button" class="btn btn-primary infos_fornecedor" data-toggle="modal" value="{{$p->id_fornecedor}}" data-target="#info">Vizualizar informações</button>
+              </td>
             </tr>
           </tbody>
           @endforeach
         </table>
+        <div id="info" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Detalhes do Fornecedor</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---->
       </div>
     </div>
   </div>
@@ -58,3 +78,34 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$(function() {
+    $.ajaxSetup({
+        headers:{
+            'X-CSRF-Token':$('input[name="_token"]').val()
+        }
+    });
+      $('.infos_fornecedor').on("click",function(evt){
+          evt.preventDefatult;
+          var id = $(this).attr('value');
+          $.ajax({
+              type: "GET",
+              url: '{{route("detalhes.fornecedor")}}'+'/'+id,
+              data: {id: id},
+              success: function(fornecedor) {
+                if($(".modal-body").text('')){
+                  $('.modal-body').append("<p class='nome'>" + 'Nome: ' + fornecedor.nome +"</p>");
+                  $('.modal-body').append("<p class='marca'>" + 'Marca: ' + fornecedor.nome_fornecedor +"</p>");
+                  $('.modal-body').append("<p class='fone'>" + 'Telefone: ' + fornecedor.telefone +"</p>");
+                }else{
+                  alert('remove isso garaio');
+                  $('.nome').html('');
+                  $('.marca').text('');
+                  $('.fone').text('');
+                }
+              },
+          });
+          
+      });
+});
+</script>

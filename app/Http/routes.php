@@ -260,10 +260,12 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
 		'as'=>'atualizar.produto',
 		'uses'=>'ProdutoController@AtualizarProduto'
 	]);
-	Route::get('listar_fornecedor',[
+	
+    Route::get('listar_fornecedor',[
 		'as'=>'listar.fornecedor',
 		'uses'=>'FornecedorController@ListarFornecedor'
 	]);
+
 	Route::any('atualizar_fornecedor/{id}',[
 		'as'=>'atualizar.fornecedor',
 		'uses'=>'FornecedorController@AtualizarFornecedor'
@@ -312,10 +314,14 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
 		'as'=>'atualizar.produto',
 		'uses'=>'ProdutoController@AtualizarProdutoDados'
 	]);
-	Route::get('detalhes_fornecedor/{id}',[
+	
+
+    Route::get('detalhes_fornecedor/{id?}',[
 		'as'=>'detalhes.fornecedor',
 		'uses'=>'ProdutoController@FornecedorDetalhes'
 	]);
+    //Utilizar o '?' no parametro de id para conversão de route ao invés de usar URL manual onde é depreciado("descontinuado").
+
 	Route::get('excluir_produto/{id}',[
 		'as'=>'excluir.produto',
 		'uses'=>'ProdutoController@ExcluirProduto'
