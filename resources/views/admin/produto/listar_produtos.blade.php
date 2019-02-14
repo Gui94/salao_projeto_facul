@@ -98,7 +98,6 @@ $(function() {
                   $('.modal-body').append("<p class='marca'>" + 'Marca: ' + fornecedor.nome_fornecedor +"</p>");
                   $('.modal-body').append("<p class='fone'>" + 'Telefone: ' + fornecedor.telefone +"</p>");
                 }else{
-                  alert('remove isso garaio');
                   $('.nome').html('');
                   $('.marca').text('');
                   $('.fone').text('');
