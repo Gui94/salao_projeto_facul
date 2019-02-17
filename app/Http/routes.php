@@ -70,10 +70,13 @@ Route::group(['middleware' => ['web']], function (){
         'as'=>'servico',
         'uses'=>'ServicoController@servicoid'
     ]);
-    Route::get('produto_id/{id}',[
+    
+    Route::get('produto_id/{id?}',[
         'as'=>'produto',
         'uses'=>'ProdutoController@produtoid'
     ]);
+
+
     Route::get('fornecedor_id/{id}',[
         'as'=>'fornecedor.id',
         'uses'=>'FornecedorController@fornecedorid'
@@ -314,15 +317,12 @@ Route::group(['middleware'=>'App\Http\Middleware\Admin'], function(){
 		'as'=>'atualizar.produto',
 		'uses'=>'ProdutoController@AtualizarProdutoDados'
 	]);
-	
-
     Route::get('detalhes_fornecedor/{id?}',[
 		'as'=>'detalhes.fornecedor',
 		'uses'=>'ProdutoController@FornecedorDetalhes'
 	]);
     //Utilizar o '?' no parametro de id para conversão de route ao invés de usar URL manual onde é depreciado("descontinuado").
-
-	Route::get('excluir_produto/{id}',[
+	Route::get('excluir_produto/{id?}',[
 		'as'=>'excluir.produto',
 		'uses'=>'ProdutoController@ExcluirProduto'
 	]);

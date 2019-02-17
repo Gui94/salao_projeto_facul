@@ -10,7 +10,6 @@ use App\FornecedorMarca;
 use Illuminate\Support\Facades\Response;
 use DB;
 
-
 class ProdutoController extends Controller{
     
     private $produto    = '';
@@ -29,12 +28,12 @@ class ProdutoController extends Controller{
 
     public function ExcluirProduto($id){
       $this->produto->deleteProduto($id);
-    return redirect('listar_produto')->with("mensagem_sucesso","Excluido com sucesso");
+      return redirect('listar_produto')->with("mensagem_sucesso","Excluido com sucesso");
     }
 
     public function produtoid($id){
       $produto = $this->produto->getid($id);
-    return view('admin/produto/excluir_produto',compact('produto'));
+      return Response::json($produto);
     }
 
     public function AtualizarProduto($id,request $request){
@@ -77,7 +76,6 @@ class ProdutoController extends Controller{
 
     public function FornecedorDetalhes($id){
       $fornecedor = $this->fornecedor->FornecedorDetalhes($id);
-      return Response::json($fornecedor);
-      //return view('admin/produto/fornecedor_detalhes',compact('fornecedor'));      
+      return Response::json($fornecedor);     
     }
 }
