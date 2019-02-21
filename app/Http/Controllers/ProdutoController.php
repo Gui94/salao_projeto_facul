@@ -3,19 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-
 use App\Produto;
-
 use App\Fornecedor;
-
 use App\FornecedorMarca;
-
-use DB;
-
 use Illuminate\Support\Facades\Response;
-
+use DB;
 
 class ProdutoController extends Controller{
     
@@ -35,12 +28,13 @@ class ProdutoController extends Controller{
 
     public function ExcluirProduto($id){
       $this->produto->deleteProduto($id);
-    return redirect('listar_produto')->with("mensagem_sucesso","Excluido com sucesso");
+      return redirect('listar_produto')->with("mensagem_sucesso","Excluido com sucesso");
     }
 
     public function produtoid($id){
-      $produto = $this->produto->getid($id);
-    return Response::json($produto);    
+      $produto = $this->produto->getid($id);   
+      return Response::json($produto);
+
     }
 
     public function AtualizarProduto($id,request $request){
@@ -83,6 +77,7 @@ class ProdutoController extends Controller{
 
      public function FornecedorDetalhes($id){
       $fornecedor = $this->fornecedor->FornecedorDetalhes($id);
-      return Response::json($fornecedor);    
+
+      return Response::json($fornecedor);      
     }
 }

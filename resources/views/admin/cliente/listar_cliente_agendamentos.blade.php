@@ -41,18 +41,11 @@
           </tbody>
         </table>
         @empty
-        <div class="alert alert-info" role="alert"><center>este cliente nao fez nenhum agendamento</center></div>
+        <div class="alert alert-info" role="alert"><center>este cliente não fez nenhum agendamento</center></div>
         @endforelse
       </div>
       <center>{{ $agendamento->appends(['agendamento' => 'paginas'])->links() }}</center>
     </div>
   </div>
 </div>
-<div class="footer">   
-  <div class="row">
-    <div class="col-lg-12 text-center" >
-          &copy;  2014 yourdomain.com | Design by: <a href="http://binarytheme.com" style="color:#fff;" target="_blank">www.binarytheme.com</a><br/>
-      <p>Editado por: Guilherme Araujo | Adriano Kapp</p>
-    </div>
-  </div>
-</div>
+@include('layouts.rodape_admin')

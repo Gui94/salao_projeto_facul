@@ -68,6 +68,10 @@
     <img style="width:100%;" src="{{asset('imagens/salao.jpg')}}"/>
     <img style="width:100%;" src="{{asset('imagens/banner-1.jpg')}}"/>
     <img style="width:100%;" src="{{asset('imagens/salao2.jpg')}}"/>
+    <img style="width:100%;" src="{{asset('/imagens/cabelo2.jpg')}}"/>
+    <img style="width:100%;" src="{{asset('/imagens/salao.jpg')}}"/>
+    <img style="width:100%;" src="{{asset('/imagens/banner-1.jpg')}}"/>
+    <img style="width:100%;" src="{{asset('/imagens/salao2.jpg')}}"/>
 </div>
 <div class="main_bg1">
     <div class="wrap">
