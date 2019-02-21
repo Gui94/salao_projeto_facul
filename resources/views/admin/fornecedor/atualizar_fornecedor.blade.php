@@ -56,3 +56,4 @@
         </div>
     </div>
 </div>
+@include('layouts.rodape_admin')

@@ -64,10 +64,10 @@
 }
 </style>
 <div class="fotos">
-    <img style="width:100%;" src="http://localhost/salao/public/imagens/cabelo2.jpg"/>
-    <img style="width:100%;" src="http://localhost/salao/public/imagens/salao.jpg"/>
-    <img style="width:100%;" src="http://localhost/salao/public/imagens/banner-1.jpg"/>
-    <img style="width:100%;" src="http://localhost/salao/public/imagens/salao2.jpg"/>
+    <img style="width:100%;" src="{{asset('imagens/cabelo2.jpg')}}"/>
+    <img style="width:100%;" src="{{asset('imagens/salao.jpg')}}"/>
+    <img style="width:100%;" src="{{asset('imagens/banner-1.jpg')}}"/>
+    <img style="width:100%;" src="{{asset('imagens/salao2.jpg')}}"/>
 </div>
 <div class="main_bg1">
     <div class="wrap">
@@ -86,7 +86,7 @@
                     @foreach($servico as $s)
                         <div class="grid1_of_3">
                             <a href="{{route('detalhes',$s->id_servico)}}">
-                                <img class="img_servico_promocao" src="{{route('imagem.file',$s->imagem)}}" alt="{{$s->imagem}}">
+                                <img class="img_servico_promocao" src="{{asset('imagens_servicos/'.$s->imagem)}}" alt="{{$s->imagem}}">
                                 <h3>{{$s->nome_servico}}</h3>
                                 <div class="price">
                                     <h4>De: R${{$s->preco}}<span>Por: R${{$s->preco_desconto}}</span></h4>

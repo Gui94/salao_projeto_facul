@@ -14,6 +14,8 @@ use App\FornecedorMarca;
 
 use DB;
 
+use Illuminate\Support\Facades\Response;
+
 
 class ProdutoController extends Controller{
     
@@ -38,7 +40,7 @@ class ProdutoController extends Controller{
 
     public function produtoid($id){
       $produto = $this->produto->getid($id);
-    return view('admin/produto/excluir_produto',compact('produto'));
+    return Response::json($produto);    
     }
 
     public function AtualizarProduto($id,request $request){
@@ -79,8 +81,8 @@ class ProdutoController extends Controller{
       return view('admin/produto/cadastrar_produto',compact('fornecedor'));
     }
 
-    public function FornecedorDetalhes($id){
+     public function FornecedorDetalhes($id){
       $fornecedor = $this->fornecedor->FornecedorDetalhes($id);
-      return view('admin/produto/fornecedor_detalhes',compact('fornecedor'));
+      return Response::json($fornecedor);    
     }
 }

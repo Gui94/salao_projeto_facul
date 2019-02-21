@@ -35,12 +35,12 @@ class ServicoController extends Controller{
     public function AtualizarServico($id,request $request){
         if($_SERVER['REQUEST_METHOD']=='POST'){
           $this->validate($request, [
-          'nome_servico' => 'required|filled|max:80',
-          'preco' => 'required|numeric|',
-          'descricao' => 'required|filled|max:255',
-          'imagem' => 'required',
-          'preco_desconto' => 'required|numeric',
-          'promocao'=>'required',
+          'nome_servico'    => 'required|filled|max:80',
+          'preco'           => 'required|numeric|',
+          'descricao'       => 'required|filled|max:255',
+          'imagem'          => 'required',
+          'preco_desconto'  => 'required|numeric',
+          'promocao'        => 'required',
           ]
         );
         $servico     = $this->servico->getId($id);

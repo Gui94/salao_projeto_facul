@@ -34,10 +34,12 @@
                           <label class="btn btn-primary btn-file">
                           <p>Imagem:</p><input type="file"  style="display: none;" name="imagem">
                           </label><br/>
-                        <p class="mensagem_error">{{$errors->first('preco_desconto',':message')}}</p>
-                          <p>Preço Desconto:</p><input class="form-control" type="text"  value="0" name="preco_desconto"><br/>
+                        <div hidden class="desconto">
+                          <p class="mensagem_error">{{$errors->first('preco_desconto',':message')}}</p>
+                            <p>Preço Desconto:</p><input class="form-control" type="text"  value="0" name="preco_desconto"><br/>
+                        </div>
                         <p class="mensagem_error">{{$errors->first('promocao',':message')}}</p>Servico em promoção?<br/>
-                          <p>Sim<input type="radio" name="promocao" value="true" /></p>
+                        <p>Sim<input type="radio" name="promocao" value="true" /></p>
                         <p>Não<input type="radio" name="promocao" value="false" /></p>
                         <br/>
                         <input type="submit" class="btn btn-primary btn-lg btn-block" value="cadastrar">
@@ -47,12 +49,17 @@
           </div>
     </div>
 </div>
-<div class="footer">
-  <div class="row">
-      <div class="col-lg-12 text-center" >
-          &copy;  2014 yourdomain.com | Design by: <a href="http://binarytheme.com" style="color:#fff;" target="_blank">www.binarytheme.com</a>
-          <br/>
-          <p>Editado por: Guilherme Araujo | Adriano Kapp</p>
-      </div>
-  </div>
-</div>
+@include('layouts.rodape_admin')
+<script type="text/javascript">
+$(document).ready(function () {
+  $('.desconto').hide();
+   $('input[name="promocao"]').click(function () {
+    if($('input[name="promocao"]:checked').val() == 'true') {
+        $('.desconto').fadeIn();
+    }else{
+       $('.desconto').fadeOut();
+    }
+    });
+
+});
+</script>
